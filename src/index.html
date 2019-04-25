@@ -5,8 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAhtQF4JMu82JkwJm1gEWmF9R1SVRFTrZE",
+      authDomain: "usuarios-5e0f2.firebaseapp.com",
+      databaseURL: "https://usuarios-5e0f2.firebaseio.com",
+      projectId: "usuarios-5e0f2",
+      storageBucket: "usuarios-5e0f2.appspot.com",
+      messagingSenderId: "123552744377"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 <body>
+    <h4>Registro de usuario</h4>
+    <input id="email" type="email" placeholder="ingresa email">
+    <input id="contraseña" type="password" placeholder="ingresa contraseña">
+    <button id="register" >enviar</button>
+    <h4>Ingreso de usuarios</h4>
+    <input id="email2" type="email" placeholder="ingresa email">
+    <input id="contraseña2" type="password" placeholder="ingresa contraseña">
+    <button id="ingreso">enviar</button>
+    <div id="contenido"></div>
   <script type="module" src="main.js"></script>
 </body>
 </html>
