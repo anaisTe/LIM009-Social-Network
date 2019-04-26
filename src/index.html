@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" /> 
   <title>Document</title>
   <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
   <script>
@@ -20,7 +21,41 @@
   </script>
 </head>
 <body>
-    <h4>Registro de usuario</h4>
+
+  <div class="d1 hidden"></div>
+  <div class="login hidden">
+    <div class="icon">
+      <img src="image/brain.png" />
+  </div>
+  <form class="conatiner" action="index.html" method="POST">
+    <h2>User register</h2>
+    <label class="conatiner margin fontsize" for="">Email : </label>
+    <input id="email" class="login_area measure fontsize" type="email" placeholder=" 📧  ingresa email">
+    <label class="conatiner margin fontsize" for="">Password : </label>
+    <input id="contraseña" class="login_area measure fontsize" type="password" placeholder="&#128274  ingresa contraseña">
+    <div class="margin">
+      <input type="checkbox" name="" value="" />
+      <span>Remember me</span>       
+    </div>
+    <input class="btn fontsize" id="register" type="button" name="" value="Sumit" />
+    </form>
+    <form>
+      <h2>User Login</h2>
+      <label class="conatiner margin fontsize" for="">Email : </label>
+      <input id="email2" class="login_area measure fontsize" type="email" placeholder="📧  ingresa email">
+      <label class="conatiner margin fontsize" for="">Password : </label>
+      <input id="contraseña2" class="login_area measure fontsize" type="password" placeholder="&#128274  ingresa contraseña">
+      <div class="margin">
+        <input type="checkbox" name="" value="" />
+        <span>Remember me</span>       
+      </div>
+      <input class="btn fontsize" id="ingreso" type="button" name="" value="Sumit" />
+    </form>
+  </div>
+  <div id="contenido"></div>
+
+
+    <!-- <h4>Registro de usuario</h4>
     <input id="email" type="email" placeholder="ingresa email">
     <input id="contraseña" type="password" placeholder="ingresa contraseña">
     <button id="register" >enviar</button>
@@ -28,7 +63,7 @@
     <input id="email2" type="email" placeholder="ingresa email">
     <input id="contraseña2" type="password" placeholder="ingresa contraseña">
     <button id="ingreso">enviar</button>
-    <div id="contenido"></div>
+    <div id="contenido"></div> -->
   <script type="module" src="main.js"></script>
 </body>
 </html>

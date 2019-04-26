@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Omnes';
+    src: url('font/omnes.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Omnes;
+}
+
+.d1{
+    width: 70%;
+    height: 100vh ;
+    float: left;
+    background: url('image/meditation_1.jpg') center;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+}
+.icon img{
+    width: 300px;
+    height: 120px;
+    margin: 15px;
+}
+.hidden{
+    overflow: hidden;
+}
+.measure{
+    width: 100%;
+}
+
+.login{
+    position: fixed;
+    background-color: #fff;
+    right: 0;
+    margin: 0;
+    height: 100%;
+    width: 30%;
+    box-shadow: -5px 0px 10px 0px rgba(0,0,0,0.6);
+}
+
+.login form{
+    margin: 20px 30px 80px;
+}
+
+.login h2{
+    font-size: 30px;
+    color: #f44336;
+}
+.container {
+    display: flex;
+  }
+
+.login label{
+    font-weight: 700;
+}
+.margin{
+    margin: 8px 0; 
+}
+.login_area{
+   padding: 8px 0;
+}
+.fontsize{
+    font-size: 18px;
+}
+.btn{
+    cursor: pointer;
+    float: right;
+    background: #f44336;
+    padding: 8px 30px;
+    color: #fff;
+    border: none;
+}
+
+/*Tablet*/
+@media only screen and (max-width: 800px) {
+    .login{
+        width: 50%;
+    }
+}
+
+/*Mobile*/
+@media only screen and (max-width: 600px) {
+    .login{
+        width: 100%;
+    }
+}
