@@ -54,25 +54,33 @@
     display: flex;
   }
 
-.login label{
-    font-weight: 700;
-}
 .margin{
     margin: 8px 0; 
 }
 .login_area{
    padding: 8px 0;
+   margin-top: 18px;
+   border-radius: 25px;
+
 }
 .fontsize{
     font-size: 18px;
 }
 .btn{
     cursor: pointer;
-    float: right;
+    float: center;
     background: #f44336;
     padding: 8px 30px;
     color: #fff;
     border: none;
+    border-radius: 25px;
+
+}
+.button{
+    padding: 15px 0px 0px 100px;
+}
+.adicional span{
+    padding-left: 124px;
 }
 
 /*Tablet*/
