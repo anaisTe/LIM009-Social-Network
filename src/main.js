@@ -3,15 +3,17 @@
 // import { myFunction } from './lib/index.js';
 
 // myFunction();
-import firebase from 'firebase';
-let config = {
-    apiKey: "<API_KEY>",
-    authDomain: "<PROJECT_ID>.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-    storageBucket: "<BUCKET>.appspot.com",
-  };
-  firebase.initializeApp(config);
+// import firebase from 'firebase';
 
+var config = {
+  apiKey: "AIzaSyAhtQF4JMu82JkwJm1gEWmF9R1SVRFTrZE",
+  authDomain: "usuarios-5e0f2.firebaseapp.com",
+  databaseURL: "https://usuarios-5e0f2.firebaseio.com",
+  projectId: "usuarios-5e0f2",
+  storageBucket: "usuarios-5e0f2.appspot.com",
+  messagingSenderId: "123552744377"
+};
+firebase.initializeApp(config);
   /*REGISTRO DE USUARIO--------------------------------*/
 const resgistry =document.getElementById("register");
 resgistry.addEventListener("click",()=>{
@@ -38,10 +40,10 @@ entry.addEventListener("click",()=>{
 
   firebase.auth().signInWithEmailAndPassword(email2, contraseña2).catch(function(error) {
     // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
+    var errorCode = "contraseña invalida";
+    var errorMessage = "error";
+    alert(errorCode);
+    alert(errorMessage);
     // ...
   });
 })
@@ -79,3 +81,18 @@ observer();
    let contenido = document.getElementById("contenido");
    contenido.innerHTML="solo lo ve usuario activo";
  }
+
+//inicio FB
+const authFacebook = () => {
+	const provider = new firebase.auth.FacebookAuthProvider();
+	firebase.auth().signInWithRedirect(provider).then(result => {
+		console.log(result.user.displayName);
+	})
+	.catch(error => {
+		console.log(error.message);
+	});
+}
+const btn_face= document
+btn_face.addEventListener('click', () => {
+	authFacebook();
+});
