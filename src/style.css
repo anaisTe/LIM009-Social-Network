@@ -9,7 +9,16 @@
     box-sizing: border-box;
     font-family: Omnes;
 }
-
+/* .icon1{
+    padding: 
+} */
+.icon-fg{
+    padding:0px 0px 0px 150px;
+    display: flex;
+}
+.icon1{
+    margin: 12px;
+}
 .d1{
     width: 70%;
     height: 100vh ;
@@ -43,7 +52,10 @@
 }
 
 .login form{
-    margin: 20px 30px 80px;
+    margin: 20px 30px 30px;
+}
+h3{
+    text-align: center;
 }
 
 .login h2{
@@ -77,7 +89,7 @@
 
 }
 .button{
-    padding: 15px 0px 0px 100px;
+    padding: 15px 0px 0px 115px;
 }
 .adicional span{
     padding-left: 124px;
