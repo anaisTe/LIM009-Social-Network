@@ -15,22 +15,22 @@ var config = {
 };
 firebase.initializeApp(config);
   /*REGISTRO DE USUARIO--------------------------------*/
-const resgistry =document.getElementById("register");
-resgistry.addEventListener("click",()=>{
+// const resgistry =document.getElementById("register");
+// resgistry.addEventListener("click",()=>{
 
-  let email =document.getElementById("email").value;
-  let contraseña = document.getElementById("contraseña").value;
+//   let email =document.getElementById("email").value;
+//   let contraseña = document.getElementById("contraseña").value;
   
-  firebase.auth().createUserWithEmailAndPassword(email, contraseña).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
+//   firebase.auth().createUserWithEmailAndPassword(email, contraseña).catch(function(error) {
+//       // Handle Errors here.
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       console.log(errorCode);
+//       console.log(errorMessage);
       
-      // ...
-    });
-})
+//       // ...
+//     });
+// })
 
 /* USUARIOS REGISTRADOS------------------------------*/
 const entry = document.getElementById("ingreso");
@@ -95,4 +95,4 @@ const authFacebook = () => {
 const btn_face= document
 btn_face.addEventListener('click', () => {
 	authFacebook();
-});
+})
