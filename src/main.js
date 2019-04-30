@@ -1,10 +1,8 @@
-// Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
+import template1 from './templates/template1.js'
+import template2 from './templates/template2.js'
 
-// myFunction();
-// import firebase from 'firebase';
-const init = () =>{
+export const init = () =>{
   const config = {
   apiKey: "AIzaSyAhtQF4JMu82JkwJm1gEWmF9R1SVRFTrZE",
   authDomain: "usuarios-5e0f2.firebaseapp.com",
@@ -14,6 +12,15 @@ const init = () =>{
   messagingSenderId: "123552744377"
 };
 firebase.initializeApp(config);
-}
 
-window.onload = init();
+}
+init();
+
+const main= document.getElementById("main");
+main.appendChild(template1());
+
+const registrate =document.querySelector("#registrate");
+  registrate.addEventListener("click",()=>{
+    main.innerHTML = " ";
+    main.appendChild(template2());
+  })

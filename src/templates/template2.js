@@ -1,7 +1,8 @@
-import {registry} from '../view_controller'
+import{registry} from '../view_controller.js'
 
 export default () => {
-  const div = document.createElement('div');
+  
+  const div2 = document.createElement('div');
  const regis=`
  <div>
    <div class="col-xs-6 col-lg-6 log">
@@ -16,9 +17,11 @@ export default () => {
      <button class="col-xs-6 col-lg-6 btn fontsize" id="register" type="button">Sumit</button>
    </div>
    </div>`;
-   div.innerHTML= regis;
    
-   const btnRegis = div.querySelector('#register');
-   btnRegis.addEventListener('click',registry);
-   return div;
-  }
+div2.innerHTML = regis;
+
+const new_user = div2.querySelector('#register');
+ new_user.addEventListener('click',registry);
+
+  return div2
+}

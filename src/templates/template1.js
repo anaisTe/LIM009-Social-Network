@@ -1,4 +1,4 @@
-import{registry, authFacebook} from '../view_controller'
+import{ authFacebook, userLogin} from '../view_controller.js'
 
 export default () =>{
   const div = document.createElement('div');
@@ -29,18 +29,17 @@ export default () =>{
   </div>
 </div>
 <div class="col-xs-12 col-lg-12 register">
-  <h5>¿No tienes una cuenta?</h5><a href="#/register" id="new_user">Regístrate</a>
+  <h5>¿No tienes una cuenta?</h5> <a href="#/Regístrate" id="registrate">Regístrate</a>
 </div>
 </section>`;
-
 div.innerHTML=page1;
 
- const btnEnter = div.querySelector('#ingreso');
- btnEnter.addEventListener('click',registry)
+const btn_login = div.querySelector('#ingreso');
+ btn_login.addEventListener('click',userLogin);
 
- const btnFace = div.querySelector('#btn-face');
- btnFace.addEventListener('click',authFacebook)
- 
- return div;
+ const btnFace = div.querySelector('#btn_face');
+ btnFace.addEventListener('click',authFacebook);
+
+
+ return div
 }
-

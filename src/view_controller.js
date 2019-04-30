@@ -1,4 +1,4 @@
-import {newUser, logIn, logInFb} from './controller/controller-firebase'
+import {logInFb,newUser,logIn} from './controller/controller-firebase.js'
 
 /*REGISTRO DE USUARIO--------------------------------*/
  export const registry = ()=>{
@@ -17,13 +17,13 @@ import {newUser, logIn, logInFb} from './controller/controller-firebase'
     let password2 = document.querySelector("#contraseña2").value;
  
     logIn(email2,password2)
-     .then((res)=>console.log(res.displayName))
+     .then((res)=>console.log('si se pudo'))
      .catch(()=>console.log("error1"))
 }
   
   /*inicio FB-----------------------------------------*/
  export const authFacebook = () => {
-    logInFb()
+  logInFb()
      .then((res)=>console.log(res.user.displayName))
      .catch(()=>console.log(error.message))
       
