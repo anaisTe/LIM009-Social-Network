@@ -23,12 +23,12 @@ export default () =>{
   </div>
 
 <h4 class="col-xs-12 col-sm-12 col-lg-12">O bien ingresa con...</h4>
-<div class="col-xs-12 col-lg-12 icon-fg">
+<div class="col-xs-12 col-sm-12 col-lg-12 icon-fg">
     <a id="btn_google"><img src="image/google.png" alt="google.icon"></a>
     <a id="btn_face"><img src="image/facebook.png" alt="google.icon"></a>
   </div>
 </div>
-<div class="col-xs-12 col-lg-12 register">
+<div class="col-xs-12 col-sm-12 col-lg-12 register">
   <h5>¿No tienes una cuenta?</h5> <a href="#/Regístrate" id="registrate">Regístrate</a>
 </div>
 </section>`;
