@@ -18,7 +18,7 @@ import {logInFb,newUser,logIn} from './controller/controller-firebase.js'
  
     logIn(email2,password2)
      .then((res)=>console.log('si se pudo'))
-     .catch(()=>console.log("error1"))
+     .catch(()=>console.log("error"))
 }
   
   /*inicio FB-----------------------------------------*/
