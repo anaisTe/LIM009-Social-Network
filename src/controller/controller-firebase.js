@@ -11,7 +11,7 @@ export const logIn = (email,password) =>{
 //LOGIN CON FACEBOOK---------------------------
 export const log_Fb = () =>{
     const provider = new firebase.auth.FacebookAuthProvider();
-    return  firebase.auth().signInWithRedirect(provider);
+    return firebase.auth().signInWithPopup(provider)
 }
 
 //LOGIN CON GOOGLE---------------------------
