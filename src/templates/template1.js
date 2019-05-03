@@ -1,4 +1,4 @@
-import{ authFacebook, userLogin} from '../view_controller.js'
+import{userLogin, authFacebook, authGoogle} from '../view_controller.js'
 
 export default () =>{
   const div = document.createElement('div');
@@ -35,11 +35,13 @@ export default () =>{
 div.innerHTML=page1;
 
 const btn_login = div.querySelector('#ingreso');
- btn_login.addEventListener('click',userLogin);
+ btn_login.addEventListener('click', userLogin);
 
- const btnFace = div.querySelector('#btn_face');
- btnFace.addEventListener('click',authFacebook);
+const btnFace = div.querySelector('#btn_face');
+ btnFace.addEventListener('click', authFacebook);
 
+const btn_google = div.querySelector('#btn_google');
+  btn_google.addEventListener('click',  authGoogle)
 
  return div
 }

@@ -1,4 +1,4 @@
-import {logInFb,newUser,logIn} from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog} from './controller/controller-firebase.js'
 
 /*REGISTRO DE USUARIO--------------------------------*/
  export const registry = ()=>{
@@ -23,12 +23,17 @@ import {logInFb,newUser,logIn} from './controller/controller-firebase.js'
   
   /*inicio FB-----------------------------------------*/
  export const authFacebook = () => {
-  logInFb()
+  log_Fb()
      .then((res)=>console.log(res.user.displayName))
      .catch(()=>console.log(error.message))
       
 }
-
+  /*inicio google-----------------------------------------*/
+export const authGoogle = () =>{
+  log_Goog()
+  .then((res)=>console.log(result.user))
+  .catch(()=>console.log('error.message'))
+}
 
 
 
