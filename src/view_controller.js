@@ -24,15 +24,47 @@ import {newUser,logIn,log_Fb, log_Goog} from './controller/controller-firebase.j
   /*inicio FB-----------------------------------------*/
  export const authFacebook = () => {
   log_Fb()
-     .then((res)=>console.log(res.user.displayName))
-     .catch(()=>console.log(error.message))
-      
+  .then(function(result) {
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    console.log("user: ", user);
+
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    console.log("error: ", credential);
+    // ...
+  }); 
 }
   /*inicio google-----------------------------------------*/
 export const authGoogle = () =>{
   log_Goog()
-  .then((res)=>console.log(result.user))
-  .catch(()=>console.log('error.message'))
+  .then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    console.log("user: ", user); 
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    console.log("error: ", errorMessage);
+    // ...
+  });
 }
 
 
