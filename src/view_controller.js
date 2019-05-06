@@ -1,4 +1,4 @@
-import {newUser,logIn,log_Fb, log_Goog, observer_user } from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './controller/controller-firebase.js'
 
 /*REGISTRO DE USUARIO--------------------------------*/
  export const registry = ()=>{
@@ -6,7 +6,10 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user } from './controller/contr
     let password = document.querySelector("#contraseña").value;
     
     newUser(email,password)
-     .then((res)=> console.log(res.displayname))
+     .then((res)=>
+    //  window.location.hash = '#resgister'
+      console.log(res.displayname)
+      )
      .catch(()=>console.log("error"))
 }
   
@@ -17,7 +20,8 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user } from './controller/contr
     let password2 = document.querySelector("#contraseña2").value;
  
     logIn(email2,password2)
-     .then((res)=>console.log('si se pudo'))
+     .then((res)=> console.log('si se pudo')) 
+    //  window.location.hash = '#resgister'
      .catch(()=>alert("Intente nuevamente, datos erroneos"))
 }
   
@@ -98,4 +102,15 @@ export const observer = () =>{
 console.log("obervador error")
  })
   }
-  
+
+
+/*CERRAR SESSION -----------------------------------------*/
+export const close_init = () =>{
+  log_Out()
+  .then(function(){
+    console.log('saliste')
+  })
+  .catch(function(error){
+    console.log('casi casi');   
+  })
+}

@@ -29,7 +29,7 @@ export default () =>{
   </div>
 </div>
 <div class="col-xs-12 col-sm-12 col-lg-12 register">
-  <h5>¿No tienes una cuenta?</h5> <a href="#/Regístrate" id="registrate">Regístrate</a>
+  <h5>¿No tienes una cuenta?</h5> <a href="#/Registrate" id="registrate">Regístrate</a>
 </div>
 </section>`;
 div.innerHTML=page1;
@@ -45,8 +45,3 @@ const btn_google = div.querySelector('#btn_google');
 
  return div
 }
-const button = div.querySelector('#ingreso');
-button.addEventListener("click", ()=>{
-userLogin();
-
-})
