@@ -19,7 +19,7 @@ global.firebase = firebasemock.MockFirebaseSdk(
 );
 
 
-import { newUser, logIn, logInFb } from "../src/controller/controller-firebase.js";
+import { newUser, logIn, log_Fb, log_Goog} from "../src/controller/controller-firebase.js";
 
 describe('newUser', () => {
   it('debería poder registrarse con email: jackelyne123@gmail.com y password: 123456', () => {
@@ -39,11 +39,20 @@ describe('logIn', () => {
   });
 });
 
-describe('logInFb', () => {
+describe('log_Fb', () => {
   it('debería poder iniciar sesion a facebook con email: jackelyne123@gmail.com y password: 123456', () => {
-    return logInFb()
-    .then(()=>{
-      expect(user.displayName).toBe('jackelyne')
+    return log_Fb()
+    .then((user)=>{
+      expect(user.isAnonymous).toBe(false)
+    })
+  });
+});
+
+describe('log_Goog', () => {
+  it('debería poder iniciar sesion a facebook con email: jackelyne123@gmail.com y password: 123456', () => {
+    return log_Goog()
+    .then((user)=>{
+      expect(user.isAnonymous).toBe(false)
     })
   });
 });

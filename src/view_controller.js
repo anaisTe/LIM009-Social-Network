@@ -1,4 +1,4 @@
-import {newUser,logIn,log_Fb, log_Goog} from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog, observer_user } from './controller/controller-firebase.js'
 
 /*REGISTRO DE USUARIO--------------------------------*/
  export const registry = ()=>{
@@ -18,7 +18,7 @@ import {newUser,logIn,log_Fb, log_Goog} from './controller/controller-firebase.j
  
     logIn(email2,password2)
      .then((res)=>console.log('si se pudo'))
-     .catch(()=>console.log("error"))
+     .catch(()=>alert("Intente nuevamente, datos erroneos"))
 }
   
   /*inicio FB-----------------------------------------*/
@@ -26,11 +26,10 @@ import {newUser,logIn,log_Fb, log_Goog} from './controller/controller-firebase.j
   log_Fb()
   .then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    var token = result.credential.accessToken;
+    //var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
-    console.log("user: ", user);
-
+    console.log('user: ', user);
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -40,9 +39,10 @@ import {newUser,logIn,log_Fb, log_Goog} from './controller/controller-firebase.j
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    console.log("error: ", credential);
+    console.log('error: ', credential);
+    
     // ...
-  }); 
+  });
 }
   /*inicio google-----------------------------------------*/
 export const authGoogle = () =>{
@@ -71,34 +71,31 @@ export const authGoogle = () =>{
 
 
     /*OBSERVADOR -----------------------------------------*/
-//   const observer = () =>{
-//     firebase.auth().onAuthStateChanged(function(user) {
-//       if (user) {
-//         console.log("existe usuario activo");
-//         aparece();
+export const observer = () =>{
+    observer_user ()
+    .then (function(user) {
+      if (user) {
+       console.log("existe usuario activo");
+         aparece();
   
         /* PARA ACCEDER AL DATOS DEL USUARIO---------- */
-    //     var displayName = user.displayName;
-    //     console.log(displayName);
-    //     var email = user.email;
-    //     console.log(email);
-    //     var emailVerified = user.emailVerified;
-    //     var photoURL = user.photoURL;
-    //     console.log(photoURL);
-    //     var isAnonymous = user.isAnonymous;
-    //     var uid = user.uid;
-    //     var providerData = user.providerData;
-    //     // ...
-    //   } else {
-        // User is signed out.
-        // console.log("no existe usuario activo");
-//       }
-//     });
-//   }
-//   observer();
+      var displayName = user.displayName;
+       console.log(displayName);
+        var email = user.email;
+        console.log(email);
+       var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+         console.log(photoURL);
+         var isAnonymous = user.isAnonymous;
+         var uid = user.uid;
+       var providerData = user.providerData;
+        
+     } else {
+      
+       console.log("no existe usuario activo");
+       }
+ }).catch(function(error){
+console.log("obervador error")
+ })
+  }
   
-  /* APARECE SOLO PARA EL USUARIO REGISTRADO */
-//    const aparece = () => {
-//      let contenido = document.getElementById("contenido");
-//      contenido.innerHTML="solo lo ve usuario activo";
-//    }

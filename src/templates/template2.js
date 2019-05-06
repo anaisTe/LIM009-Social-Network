@@ -6,7 +6,7 @@ export default () => {
  const regis=`
  <div>
   <div class="col-xs-12  col-sm-12 col-lg-12 icon-brain">
-    <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.png"/>
+    <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.PNG"/>
   </div>
    <div class="col-xs-12 col-sm-12 col-lg-12 log">
      <input id="email" class="col-xs-12 col-lg-12 login_area measure fontsize" type="email"

@@ -1,45 +1,101 @@
 @font-face {
-    font-family: 'Omnes';
-    src: url('font/omnes.ttf');
+  font-family: "Omnes";
+  src: url("font/omnes.ttf");
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* font-family: Omnes; */
-    /* border: 1px solid black; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: Omnes; */
+  /* border: 1px solid black; */
 }
-.zen{
-    height: 170px;
-    padding: 0 130px 0 130px;
+.zen {
+  height: 170px;
+  padding: 0 130px 0 130px;
 }
-.icon0{
-    width: 180px; 
+.icon0 {
+  width: 180px;
 }
-.icon-brain{
-    padding: 20px 140px 20px 140px; 
+.icon-brain {
+  padding: 20px 140px 20px 140px;
 }
-p{
+p {
+  text-align: center;
+  padding: 15px 0 25px 0;
+}
+.log {
+  padding: 15px 70px 8px 70px;
+}
+.login_area {
+  border-radius: 25px;
+  padding: 5px 5px 5px 5px;
+}
+.fontsize {
+  font-size: 13px;
+}
+.button {
+  padding: 30px 150px 10px 150px;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  cursor: pointer;
+  float: center;
+  background: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 5px 5px 5px;
+}
+h4 {
+  text-align: center;
+  padding: 25px 0 5px 0;
+}
+.icon-fg {
+  padding: 25px 205px 0 205px;
+  display: flex;
+  justify-content: center;
+}
+.register {
+  display: flex;
+  justify-content: center;
+  padding: 30px 150px 0 150px;
+}
+[class*="col-"] {
+  float: left;
+}
+@media (max-width: 375px) {
+  .zen {
+    height: 150px;
+    padding: 0 100px 0 100px;
+  }
+  .icon0 {
+    width: 200px;
+  }
+  .icon-brain {
+    padding: 20px 90px 20px 90px;
+  }
+  p {
     text-align: center;
     padding: 15px 0 25px 0;
-}
-.log{
-    padding: 15px 70px 8px 70px;
-}
-.login_area{
+  }
+  .log {
+    padding: 15px 50px 8px 50px;
+  }
+  .login_area {
     border-radius: 25px;
     padding: 5px 5px 5px 5px;
-}
-.fontsize{
+  }
+  .fontsize {
     font-size: 13px;
-}
-.button{
-    padding:30px 150px 10px 150px; 
+  }
+  .button {
+    padding: 30px 100px 10px 100px;
     display: flex;
     justify-content: center;
-}
-.btn{
+  }
+  .btn {
     cursor: pointer;
     float: center;
     background: #f44336;
@@ -47,251 +103,200 @@ p{
     border: none;
     border-radius: 25px;
     padding: 5px 5px 5px 5px;
-}
-h4{
+  }
+  h4 {
     text-align: center;
-    padding: 25px 0 5px 0
-}
-.icon-fg{
-    padding: 25px 205px 0 205px;
+    padding: 25px 0 5px 0;
+  }
+  .icon-fg {
+    padding: 25px 125px 0 125px;
+  }
+  .register {
     display: flex;
-    justify-content: center;
+    padding: 30px 60px 0 60px;
+  }
 }
-.register{
-    display: flex;
-    justify-content: center;
-    padding: 30px 150px 0 150px
-}
-[class*="col-"]{
-    float: left;
-}
-@media(max-width:375px){
-    .zen{
-        height: 150px;
-        padding: 0 100px 0 100px;
-    }
-    .icon0{
-        width: 200px; 
-    }
-    .icon-brain{
-        padding: 20px 90px 20px 90px; 
-    }
-    p{
-        text-align: center;
-        padding: 15px 0 25px 0;
-    }
-    .log{
-        padding: 15px 50px 8px 50px;
-    }
-    .login_area{
-        border-radius: 25px;
-        padding: 5px 5px 5px 5px;
-    }
-    .fontsize{
-        font-size: 13px;
-    }
-    .button{
-        padding:30px 100px 10px 100px; 
-        display: flex;
-        justify-content: center;
-    }
-    .btn{
-        cursor: pointer;
-        float: center;
-        background: #f44336;
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        padding: 5px 5px 5px 5px;
-    }
-    h4{
-        text-align: center;
-        padding: 25px 0 5px 0
-    }
-    .icon-fg{
-        padding: 25px 125px 0 125px;
-    }
-    .register{
-        display: flex;
-        padding: 30px 60px 0 60px
-    }  
-}
-@media(max-width:1199px) and (min-width:992px){
-    .zen{
-        height: 630px;
-        width: 680px;
-    }
-    /* .icon0{
+@media (max-width: 1199px) and (min-width: 992px) {
+  .zen {
+    height: 630px;
+    width: 680px;
+  }
+  /* .icon0{
         padding: 100px 150px 0 150px; 
     } */
-    .icon-brain{
-        padding: 100px 200px 20px 200px; 
-    }
-    p{
-        text-align: center;
-        padding: 15px 0 25px 0;
-    }
-    .log{
-        padding: 15px 150px 8px 150px;
-    }
-    .login_area{
-        border-radius: 25px;
-        /* padding: 15px 5px 5px 5px; */
-    }
-    .fontsize{
-        font-size: 13px;
-    }
-    .button{
-        padding:30px 200px 10px 200px; 
-        display: flex;
-        justify-content: center;
-    }
-    .btn{
-        cursor: pointer;
-        float: center;
-        background: #f44336;
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        padding: 5px 5px 5px 5px;
-    }
-    h4{
-        text-align: center;
-        padding: 25px 0 5px 0
-    }
-    .icon-fg{
-        padding: 25px 225px 0 225px;
-    }
-    .register{
-        display: flex;
-        padding: 30px 150px 0 150px
-    }
-    .col-lg-12{
-        width:100%;
-    }
-    .col-lg-6{width:50%}
+  .icon-brain {
+    padding: 100px 200px 20px 200px;
+  }
+  p {
+    text-align: center;
+    padding: 15px 0 25px 0;
+  }
+  .log {
+    padding: 15px 150px 8px 150px;
+  }
+  .login_area {
+    border-radius: 25px;
+    /* padding: 15px 5px 5px 5px; */
+  }
+  .fontsize {
+    font-size: 13px;
+  }
+  .button {
+    padding: 30px 200px 10px 200px;
+    display: flex;
+    justify-content: center;
+  }
+  .btn {
+    cursor: pointer;
+    float: center;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 5px 5px 5px;
+  }
+  h4 {
+    text-align: center;
+    padding: 25px 0 5px 0;
+  }
+  .icon-fg {
+    padding: 25px 225px 0 225px;
+  }
+  .register {
+    display: flex;
+    padding: 30px 150px 0 150px;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
 }
-@media(max-width:767px){
-
-    .col-xs-12{
-        width:100%;
-    }
+@media (max-width: 767px) {
+  .col-xs-12 {
+    width: 100%;
+  }
 }
-@media(min-width:1200px){
-    .zen{
-        height: 630px;
-        width: 680px;
-    }
-    /* .icon0{
+@media (min-width: 1200px) {
+  .zen {
+    height: 630px;
+    width: 680px;
+  }
+  /* .icon0{
         padding: 100px 150px 0 150px; 
     } */
-    .icon-brain{
-        padding: 100px 200px 20px 200px; 
-    }
-    p{
-        text-align: center;
-        padding: 15px 0 25px 0;
-    }
-    .log{
-        padding: 15px 150px 8px 150px;
-    }
-    .login_area{
-        border-radius: 25px;
-        /* padding: 15px 5px 5px 5px; */
-    }
-    .fontsize{
-        font-size: 13px;
-    }
-    .button{
-        padding: 30px 250px 10px 250px; 
-    }
-    .btn{
-        cursor: pointer;
-        float: center;
-        background: #f44336;
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        padding: 5px 5px 5px 5px;
-    }
-    h4{
-        text-align: center;
-        padding: 25px 0 5px 0
-    }
-    .icon-fg{
-        padding: 25px 295px 0 295px;
-        display: flex;
-        justify-content: center;
-    }
-    .register{
-        display: flex;
-        justify-content: center;
-        padding: 30px 220px 0 220px
-    }
-    .col-lg-12{width:100%}
-    .col-lg-6{width:50%}
+  .icon-brain {
+    padding: 100px 200px 20px 200px;
+  }
+  p {
+    text-align: center;
+    padding: 15px 0 25px 0;
+  }
+  .log {
+    padding: 15px 150px 8px 150px;
+  }
+  .login_area {
+    border-radius: 25px;
+    /* padding: 15px 5px 5px 5px; */
+  }
+  .fontsize {
+    font-size: 13px;
+  }
+  .button {
+    padding: 30px 250px 10px 250px;
+  }
+  .btn {
+    cursor: pointer;
+    float: center;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 5px 5px 5px;
+  }
+  h4 {
+    text-align: center;
+    padding: 25px 0 5px 0;
+  }
+  .icon-fg {
+    padding: 25px 295px 0 295px;
+    display: flex;
+    justify-content: center;
+  }
+  .register {
+    display: flex;
+    justify-content: center;
+    padding: 30px 220px 0 220px;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
 }
-@media(max-width:991px) and (min-width:768px){
-    .zen{
-        height: 600px;
-        width: 500px;
-    }
-    /* .icon0{
+@media (max-width: 991px) and (min-width: 768px) {
+  .zen {
+    height: 600px;
+    width: 500px;
+  }
+  /* .icon0{
         padding: 100px 50px 0 50px; 
     } */
-    .icon-brain{
-        padding: 100px 90px 20px 90px; 
-    }
-    p{
-        text-align: center;
-        padding: 15px 0 25px 0;
-    }
-    .log{
-        padding: 15px 100px 8px 120px;
-        display: flex;
-        justify-content: center;
-    }
-    .login_area{
-        border-radius: 25px;
-        /* padding: 15px 5px 5px 5px; */
-    }
-    .fontsize{
-        font-size: 13px;
-    }
-    .button{
-        padding:30px 165px 10px 165px; 
-    }
-    .btn{
-        cursor: pointer;
-        float: center;
-        background: #f44336;
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        padding: 5px 5px 5px 5px;
-    }
-    h4{
-        text-align: center;
-        padding: 25px 0 5px 0
-    }
-    .icon-fg{
-        padding: 25px 155px 0 155px;
-        display: flex;
-        justify-content: center;
-    }
-    .register{
-        display: flex;
-        justify-content: center;
-        padding: 30px 80px 0 80px
-    }
-    .col-sm-12{
-        width:100%;
-        /* display: flex;
+  .icon-brain {
+    padding: 100px 90px 20px 90px;
+  }
+  p {
+    text-align: center;
+    padding: 15px 0 25px 0;
+  }
+  .log {
+    padding: 15px 100px 8px 120px;
+    display: flex;
+    justify-content: center;
+  }
+  .login_area {
+    border-radius: 25px;
+    /* padding: 15px 5px 5px 5px; */
+  }
+  .fontsize {
+    font-size: 13px;
+  }
+  .button {
+    padding: 30px 165px 10px 165px;
+  }
+  .btn {
+    cursor: pointer;
+    float: center;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 5px 5px 5px;
+  }
+  h4 {
+    text-align: center;
+    padding: 25px 0 5px 0;
+  }
+  .icon-fg {
+    padding: 25px 155px 0 155px;
+    display: flex;
+    justify-content: center;
+  }
+  .register {
+    display: flex;
+    justify-content: center;
+    padding: 30px 80px 0 80px;
+  }
+  .col-sm-12 {
+    width: 100%;
+    /* display: flex;
         justify-content: center; */
-    }
-    .col-sm-6{
-        width: 50%;
-        /* display: flex;
+  }
+  .col-sm-6 {
+    width: 50%;
+    /* display: flex;
         justify-content: center; */
-    }
+  }
 }

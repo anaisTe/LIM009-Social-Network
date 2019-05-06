@@ -7,7 +7,7 @@ export default () =>{
 </section>
 <section class="col-xs-12  col-sm-6 col-md-6 col-lg-6">
 <div class="col-xs-12  col-sm-12 col-lg-12 icon-brain">
-  <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.png"/>
+  <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.PNG"/>
 </div>
 <span><p>¡Bienvenida!</p></span>
   <div class="col-xs-12 col-lg-12 log">
@@ -45,3 +45,8 @@ const btn_google = div.querySelector('#btn_google');
 
  return div
 }
+const button = div.querySelector('#ingreso');
+button.addEventListener("click", ()=>{
+userLogin();
+
+})

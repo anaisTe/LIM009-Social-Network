@@ -10,7 +10,7 @@ export const logIn = (email,password) =>{
 
 //LOGIN CON FACEBOOK---------------------------
 export const log_Fb = () =>{
-    const provider = new firebase.auth.FacebookAuthProvider();
+    var provider = new firebase.auth.FacebookAuthProvider();
     return firebase.auth().signInWithPopup(provider)
 }
 
@@ -18,4 +18,8 @@ export const log_Fb = () =>{
 export const log_Goog = () =>{
     const provider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(provider);
+}
+
+export const observer_user = () =>{
+    return firebase.auth().onAuthStateChanged();
 }
