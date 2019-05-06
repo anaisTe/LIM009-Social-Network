@@ -1,5 +1,8 @@
 import template1 from "./templates/template1.js";
 import template2 from "./templates/template2.js";
+// import template3 from "./templates/template3.js";
+import { changePage } from "./router/router.js";
+
 
 export const init = () => {
   const config = {
@@ -22,3 +25,17 @@ registrate.addEventListener("click", () => {
   main.innerHTML = " ";
   main.appendChild(template2());
 });
+
+
+
+const init_2 = () =>{
+    changePage(window.location.hash);
+    window.addEventListener('hashchange', ()=> changePage(window.location.hash));
+}
+window.addEventListener('load', init_2);
+
+// const btn_logOut = document.querySelector('#logOut');
+// btn_logOut.addEventListener('click',()=>{
+//   main.innerHTML=' ';
+//   main.appendChild( template3());
+// });

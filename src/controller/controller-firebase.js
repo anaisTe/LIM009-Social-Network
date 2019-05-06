@@ -23,3 +23,8 @@ export const log_Goog = () =>{
 export const observer_user = () =>{
     return firebase.auth().onAuthStateChanged();
 }
+
+//CERRAR SESION---------------------------
+export const log_Out = () =>{
+    return firebase.auth().signOut()
+}
