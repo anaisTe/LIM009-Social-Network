@@ -3,11 +3,11 @@ import{userLogin, authFacebook, authGoogle} from '../view_controller.js'
 export default () =>{
   const div = document.createElement('div');
  const page1 =`<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-<img class="col-xs-12 zen" src="image/img-zen.jpg" alt="google.img">
+<img class="col-xs-12 zen" src="image/img-zen.jpeg" alt="google.img">
 </section>
 <section class="col-xs-12  col-sm-6 col-md-6 col-lg-6">
 <div class="col-xs-12  col-sm-12 col-lg-12 icon-brain">
-  <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.PNG"/>
+  <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.png"/>
 </div>
 <span><p>¡Bienvenida!</p></span>
   <div class="col-xs-12 col-lg-12 log">
