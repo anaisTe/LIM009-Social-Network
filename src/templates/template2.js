@@ -8,13 +8,17 @@ export default () => {
   <div class="col-xs-12  col-sm-12 col-lg-12 icon-brain">
     <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.PNG"/>
   </div>
+  <div class="col-xs-12 col-sm-12 col-lg-12 log">
+  <input id="user_name" class="col-xs-12 col-lg-12 login_area measure fontsize" type="email"
+    placeholder="   &#128100    Nombre y Apellido">
+  </div>
    <div class="col-xs-12 col-sm-12 col-lg-12 log">
      <input id="email" class="col-xs-12 col-lg-12 login_area measure fontsize" type="email"
-       placeholder="    Email                                                                              📧">
+       placeholder="    &#9993    Email ">
    </div>
    <div class="col-xs-12 col-sm-12 col-lg-12 log">
      <input id="contraseña" class="col-xs-12 col-lg-12 login_area measure fontsize" type="password"
-       placeholder="   Password                                                                          &#128274 ">
+       placeholder="    &#128274    Password  ">
    </div> 
    <div class="button">
      <button class="col-xs-6 col-sm-6 col-lg-6 btn fontsize" id="register" type="button">Sumit</button>
