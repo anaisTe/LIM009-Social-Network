@@ -191,7 +191,9 @@ h4 {
   }
   p {
     text-align: center;
-    padding: 15px 0 25px 0;
+    font-size: 200%;
+    color: #133c55b6;
+    /*padding: 15px 0 25px 0;*/
   }
   .log {
     padding: 15px 200px 8px 200px;
@@ -217,7 +219,8 @@ h4 {
   }
   h4 {
     text-align: center;
-    padding: 25px 0 5px 0;
+    color: #133c55b6;
+   /* padding: 25px 0 5px 0;*/
   }
   .icon-fg {
     padding: 25px 295px 0 295px;
@@ -227,8 +230,13 @@ h4 {
   .register {
     display: flex;
     justify-content: center;
-    padding: 30px 220px 0 220px;
+    /*padding: 30px 220px 0 220px;*/
   }
+  .registrate{
+    margin-top: -6%;
+    color: #133c55b6;
+  }
+  
   .col-lg-12 {
     width: 100%;
   }

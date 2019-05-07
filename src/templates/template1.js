@@ -29,7 +29,7 @@ export default () =>{
   </div>
 </div>
 <div class="col-xs-12 col-sm-12 col-lg-12 register">
-  <h5>¿No tienes una cuenta?</h5> <a href="#/Registrate" id="registrate">Regístrate</a>
+  <h4 class="registrate">¿No tienes una cuenta?</h4> <a href="#/Registrate" id="registrate">Regístrate</a>
 </div>
 </section>`;
 div.innerHTML=page1;
