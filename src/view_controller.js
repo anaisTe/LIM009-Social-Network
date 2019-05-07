@@ -11,7 +11,7 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
       window.location.hash = '#/signIn'
       console.log('Hola',user_name)
     })
-     .catch(()=>console.log("error"))
+     .catch(()=>alert("Falta completar, campo vacio"))
 }
   
   /* USUARIOS REGISTRADOS------------------------------*/
