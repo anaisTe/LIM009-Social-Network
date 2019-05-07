@@ -2,13 +2,14 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
 
 /*REGISTRO DE USUARIO--------------------------------*/
  export const registry = ()=>{
+    let user_name = document.querySelector('#user_name').value;
     let email =document.querySelector("#email").value;
     let password = document.querySelector("#contraseña").value;
     
     newUser(email,password)
      .then(()=>{
       window.location.hash = '#/signIn'
-      //console.log(res.displayname)
+      console.log('Hola',user_name)
     })
      .catch(()=>console.log("error"))
 }
