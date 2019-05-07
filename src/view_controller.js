@@ -6,10 +6,10 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
     let password = document.querySelector("#contraseña").value;
     
     newUser(email,password)
-     .then((res)=>
-    //  window.location.hash = '#resgister'
-      console.log(res.displayname)
-      )
+     .then(()=>{
+      window.location.hash = '#/signIn'
+      //console.log(res.displayname)
+    })
      .catch(()=>console.log("error"))
 }
   
@@ -20,20 +20,20 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
     let password2 = document.querySelector("#contraseña2").value;
  
     logIn(email2,password2)
-     .then((res)=> console.log('si se pudo')) 
-    //  window.location.hash = '#resgister'
-     .catch(()=>alert("Intente nuevamente, datos erroneos"))
+     .then(()=>{ window.location.hash = '#/init'
+    }).catch(()=>alert("Intente nuevamente, datos erroneos"))
 }
   
   /*inicio FB-----------------------------------------*/
  export const authFacebook = () => {
   log_Fb()
-  .then(function(result) {
+  .then(()=>{
+    window.location.hash="#/init";
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     //var token = result.credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
-    console.log('user: ', user);
+    //var user = result.user;
+    //console.log('user: ', user);
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -51,12 +51,13 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
   /*inicio google-----------------------------------------*/
 export const authGoogle = () =>{
   log_Goog()
-  .then(function(result) {
+  .then(()=>{
+    window.location.hash="#/init";
     // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
+    //var token = result.credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
-    console.log("user: ", user); 
+    //var user = result.user;
+    //console.log("user: ", user); 
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -107,10 +108,10 @@ console.log("obervador error")
 /*CERRAR SESSION -----------------------------------------*/
 export const close_init = () =>{
   log_Out()
-  .then(function(){
-    console.log('saliste')
+  .then(()=>{
+    console.log("pudiste cerrar sesion")
   })
   .catch(function(error){
-    console.log('casi casi');   
+    console.log('no pudiste cerrar sesion');   
   })
 }

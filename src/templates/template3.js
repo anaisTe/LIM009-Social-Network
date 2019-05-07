@@ -8,7 +8,7 @@ const homePage = `
     <h1>hola</h1>
 </div>
 <div>
-    <button id="logOut">Cerrar Sesion</button>
+    <a href="#/close" id="logOut">Cerrar Sesion</a>
 </div>
 `
 div_3.innerHTML = homePage;
