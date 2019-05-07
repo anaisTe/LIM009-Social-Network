@@ -12,7 +12,7 @@ export default () => {
   <img class="col-xs-12 col-sm-12 col-lg-12 icon0" src="image/brain.png"/>
 </div>
   <div class="col-xs-12 col-sm-12 col-lg-12 log">
-  <input id="user_name" class="col-xs-12 col-lg-12 login_area measure fontsize" type="email"
+  <input id="user_name" class="col-xs-12 col-lg-12 login_area measure fontsize" type="text"
     placeholder="   &#128100    Nombre y Apellido">
   </div>
   <div class="col-xs-12 col-lg-12 log">
