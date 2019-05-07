@@ -12,11 +12,11 @@ export default () =>{
 <span><p>¡Bienvenida!</p></span>
   <div class="col-xs-12 col-lg-12 log">
     <input id="email2" class="col-xs-12 col-lg-12 login_area measure fontsize" type="email"
-      placeholder="    Email                                                                              📧">
+      placeholder="   &#9993    Email ">
   </div>
   <div class="col-xs-12 col-lg-12 log">
     <input id="contraseña2" class="col-xs-12 col-lg-12 login_area measure fontsize" type="password"
-      placeholder="   Password                                                                          &#128274 ">
+      placeholder="   &#128274    Password  ">
   </div> 
   <div class="button">
     <button class="col-xs-12 col-lg-12 btn fontsize" id="ingreso" type="button">Log in</button>
