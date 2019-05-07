@@ -187,14 +187,14 @@ h4 {
         padding: 100px 150px 0 150px; 
     } */
   .icon-brain {
-    padding: 100px 200px 20px 200px;
+    padding: 100px 150px 20px 150px;
   }
   p {
     text-align: center;
     padding: 15px 0 25px 0;
   }
   .log {
-    padding: 15px 150px 8px 150px;
+    padding: 15px 200px 8px 200px;
   }
   .login_area {
     border-radius: 25px;
@@ -204,7 +204,7 @@ h4 {
     font-size: 13px;
   }
   .button {
-    padding: 30px 250px 10px 250px;
+    padding: 30px 280px 10px 280px;
   }
   .btn {
     cursor: pointer;
