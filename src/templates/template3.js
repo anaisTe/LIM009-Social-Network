@@ -4,12 +4,36 @@ export default () =>{
 
 const div_3 = document.createElement('div');
 const homePage = `
-<div id="page_3">
-    <h1>hola</h1>
-</div>
-<div>
-    <a href="#/close" id="logOut">Cerrar Sesion</a>
-</div>
+<header>
+       <input type="checkbox" id="btn-menu" />
+       <label for="btn-menu"><img src="image/menu-three.png" /></label>
+
+    <nav  class="menu">
+        <ul>
+            <li>
+                <a href="#/perfil">Perfil 
+                    <img src="image/arrow-wh.png" />
+                </a>
+                <div class="subMenu">
+                    <ul>
+                        <li>
+                            <a href="#/Configuración">Configuración</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <img src="image/brain.png" class="logo" />
+            </li>
+            <li>
+                <a href="#/close" id="logOut">
+                    <img src="image/logout-wht.png" />Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
 `
 div_3.innerHTML = homePage;
 
