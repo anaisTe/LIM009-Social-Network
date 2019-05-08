@@ -5,8 +5,8 @@ export default () =>{
 const div_3 = document.createElement('div');
 const homePage = `
 <header>
-       <input type="checkbox" id="btn-menu" />
-       <label for="btn-menu"><img src="image/menu-three.png" /></label>
+    <input type="checkbox" id="btn-menu" />
+    <label for="btn-menu"><img src="image/menu-three.png" /></label>
 
     <nav  class="menu">
         <ul>
@@ -17,7 +17,7 @@ const homePage = `
                 <div class="subMenu">
                     <ul>
                         <li>
-                            <a href="#/Configuración">Configuración</a>
+                            <a href="#/configuracion">Configuración</a>
                         </li>
                     </ul>
                 </div>
