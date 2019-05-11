@@ -24,7 +24,7 @@ import template3 from "../templates/template3.js"
 export const changePage = (hash) =>{
     if( hash === "#/" || hash=== "" || hash === "#"){
         return viewTmp("#/signIn");
-    } else if (hash === "#/signIn" || hash === "#/init" || hash === "#/register" || hash === "#/close"){
+    } else if (hash === "#/signIn" || hash === "#/init" || hash === "#/register" || hash === "#/perfil" || hash === "#/configuracion" || hash === "#/close"){
         return viewTmp(hash);
     } else {
         return viewTmp();
@@ -45,7 +45,15 @@ const viewTmp = (routers) =>{
         case "#/register" :
         divMain.appendChild(template2());
         break;
-        
+
+        case "#/perfil" :
+        divMain.appendChild(template3());
+        break;
+
+        case "#/configuracion" :
+        divMain.appendChild(template3());
+        break;
+
         case "#/close" :
         divMain.appendChild(template1());
         break;
