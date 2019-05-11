@@ -5,13 +5,13 @@
 
 import {router_Main} from "./router/router-main.js"
 export const init = () => {
-  const config = {
-    apiKey: "AIzaSyAhtQF4JMu82JkwJm1gEWmF9R1SVRFTrZE",
-    authDomain: "usuarios-5e0f2.firebaseapp.com",
-    databaseURL: "https://usuarios-5e0f2.firebaseio.com",
-    projectId: "usuarios-5e0f2",
-    storageBucket: "usuarios-5e0f2.appspot.com",
-    messagingSenderId: "123552744377"
+  var config = {
+    apiKey: "AIzaSyDsAk8goTY1C0B5UZ63rsfaE1lMx3JmPc0",
+    authDomain: "login-with-goog.firebaseapp.com",
+    databaseURL: "https://login-with-goog.firebaseio.com",
+    projectId: "login-with-goog",
+    storageBucket: "login-with-goog.appspot.com",
+    messagingSenderId: "29201761866"
   };
   firebase.initializeApp(config);
   router_Main();
