@@ -24,6 +24,15 @@ export const observer_user = () =>{
     return firebase.auth().onAuthStateChanged();
 }
 
+//SET USER TO FIRESTORE
+export const setUser = (userId, nameUser, emailUser) => {
+    var firestore = firebase.firestore().collection("users").doc(userId).set({
+        name: nameUser,
+        email: emailUser
+        });
+    return firestore
+}
+
 //CERRAR SESION---------------------------
 export const log_Out = () =>{
     return firebase.auth().signOut()

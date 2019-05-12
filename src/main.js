@@ -4,18 +4,20 @@
 //import { changePage } from "./router/router.js";
 
 import {router_Main} from "./router/router-main.js"
+
 export const init = () => {
-  var config = {
+  var app = firebase.initializeApp({
     apiKey: "AIzaSyDsAk8goTY1C0B5UZ63rsfaE1lMx3JmPc0",
     authDomain: "login-with-goog.firebaseapp.com",
     databaseURL: "https://login-with-goog.firebaseio.com",
     projectId: "login-with-goog",
     storageBucket: "login-with-goog.appspot.com",
     messagingSenderId: "29201761866"
-  };
-  firebase.initializeApp(config);
+  });
+  firebase.firestore(app);
   router_Main();
 };
+
 window.onload = init();
 
 /*const main = document.getElementById("main");
