@@ -32,11 +32,19 @@ const homePage = `
         </ul>
     </nav>
 </header>
-<div>
-    <div></div>
-    <div></div>
 
+<div class="col-xs-6 col-lg-6 log card">
+<img class="profile_img" src="image/photo.png" alt="Avatar">
+  <div class= "container">
+    <h3>Usuario</h3> 
+    <h3>Edad</h3> 
+  </div>
 </div>
+
+<div class="col-xs-6 col-lg-6 log">
+    <textarea>Escribe aqui tu nota</textarea>
+    <button id="btn_note" class="col-xs-4 col-lg-12 btn fontsize" type="summit">publicar</button>
+</div> 
 `
 div_3.innerHTML = homePage;
 
