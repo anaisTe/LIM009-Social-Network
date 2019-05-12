@@ -1,4 +1,5 @@
-import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out} from './controller/controller-firebase.js'
+import { regCloudFirebase } from "./templates/template2.js";
 
 /*REGISTRO DE USUARIO--------------------------------*/
  export const registry = ()=>{
@@ -8,10 +9,13 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
     
     newUser(email,password)
      .then(()=>{
-      window.location.hash = '#/signIn'
-      console.log('Hola',user_name)
+      window.location.hash = '#/perfil'
+      //SET USER TO FIRESTORE
+      var uid = firebase.auth().currentUser.uid;
+      regCloudFirebase(uid);
+      console.log('Hola ', uid)
     })
-     .catch(()=>alert("Falta completar, campo vacio"))
+     .catch((error)=>console.log(error.message))
 }
   
   /* USUARIOS REGISTRADOS------------------------------*/
@@ -30,10 +34,7 @@ import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out } from './control
   log_Fb()
     .then(function(result) {
       window.location.hash="#/init";
-
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       var token = result.credential.accessToken;
-      // The signed-in user info.
       var user = result.user;
       console.log("token: ", token,"; user logeado ", user);
     }).catch(function(error) {
@@ -67,9 +68,6 @@ export const authGoogle = () =>{
     // ...
   });
 }
-
-
-
 
     /*OBSERVADOR -----------------------------------------*/
 export const observer = () =>{

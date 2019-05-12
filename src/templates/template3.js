@@ -7,7 +7,6 @@ const homePage = `
 <header>
     <input type="checkbox" id="btn-menu" />
     <label for="btn-menu"><img src="image/menu-three.png" /></label>
-
     <nav  class="menu">
         <ul>
             <li>
@@ -33,7 +32,11 @@ const homePage = `
         </ul>
     </nav>
 </header>
+<div>
+    <div></div>
+    <div></div>
 
+</div>
 `
 div_3.innerHTML = homePage;
 
