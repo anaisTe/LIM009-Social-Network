@@ -6,7 +6,7 @@ const div_3 = document.createElement('div');
 const homePage = `
 <header>
     <input type="checkbox" id="btn-menu" />
-    <label for="btn-menu"><img src="image/menu-three.png" /></label>
+    <label for="btn-menu"><div class="img-menu"><img src="image/menu-three.png" /></div></label>
     <nav  class="menu">
         <ul>
             <li>
@@ -33,18 +33,39 @@ const homePage = `
     </nav>
 </header>
 
-<div class="col-xs-6 col-lg-6 log card">
-<img class="profile_img" src="image/photo.png" alt="Avatar">
-  <div class= "container">
+<section class="col-xs-12 box-section">
+<div class="col-xs-12 col-lg-6 log2 card">
+<img class="profile_img col-xs-3" src="image/photo.png" alt="Avatar">
+  <div class= "container col-xs-9">
     <h3>Usuario</h3> 
     <h3>Edad</h3> 
   </div>
 </div>
 
-<div class="col-xs-6 col-lg-6 log">
-    <textarea>Escribe aqui tu nota</textarea>
-    <button id="btn_note" class="col-xs-4 col-lg-12 btn fontsize" type="summit">publicar</button>
-</div> 
+<div class="col-xs-12 col-lg-6 box-text">
+    <textarea class="col-xs-12 text"> ¿Que quieres compartir?</textarea>
+    <div class="col-xs-12 box-btn-img">
+    <img class="col-xs-6" alt="img">
+    <button id="btn_note" class="col-xs-6 col-lg-12 btn fontsize" type="summit">publicar</button>
+    </div> 
+</div>
+<div class="col-xs-12 box-post-total">
+<div class="col-xs-12 box-post">
+    <div class="col-xs-12 box-remove">
+      <h5 class="col-xs-9 h5"> Publicado por </h5>
+      <div class="col-xs-3 img-remove">
+      <img  alt="eliminar">
+      </div>
+    </div>
+    <div class="col-xs-12 h5 post">
+      <h5> dsa</h5>    
+    </div>
+    <div class="col-xs-12 h5 edit">
+      <img alt="like"> <img alt="editar">
+    </div>
+</div>
+</div>
+</section>
 `
 div_3.innerHTML = homePage;
 
