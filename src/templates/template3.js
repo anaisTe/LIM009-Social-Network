@@ -33,37 +33,43 @@ const homePage = `
     </nav>
 </header>
 
-<section class="col-xs-12 box-section">
-<div class="col-xs-12 col-lg-6 log2 card">
-<img class="profile_img col-xs-3" src="image/photo.png" alt="Avatar">
-  <div class= "container col-xs-9">
-    <h3>Usuario</h3> 
-    <h3>Edad</h3> 
-  </div>
+<section class="col-xs-12 col-lg-12 box-section">
+<div class="col-lg-2">
+</div>
+<div class="col-xs-12 col-lg-3 log2 card">
+    <img class="profile_img col-xs-3 col-lg-3" src="image/photo.png" alt="Avatar">
+    <div class= "container col-xs-9 col-lg-9">
+        <h3>Usuario</h3> 
+        <h3>Edad</h3> 
+    </div>
+</div>
+<div class="col-lg-5">
+    <div class="col-xs-12 col-lg-12 box-text">
+        <input id="post" type="text" class="col-xs-12 col-lg-12 text" placeholder="¿Que quieres compartir?">
+        <div class="col-xs-12 col-lg-12 box-btn-img">
+            <img class="col-xs-6 col-lg-6" alt="img">
+            <button id="btn_note" class="col-xs-6 col-lg-6 btn fontsize" type="summit">publicar</button>
+        </div> 
+    </div>
+    <div class="col-xs-12 col-lg-12 box-post-total">
+        <div class="col-xs-12 col-lg-12 box-post">
+            <div class="col-xs-12 col-lg-12 box-remove">
+                <h5 class="col-xs-9 col-lg-9 h5"> Publicado por </h5>
+                <div class="col-xs-3 col-lg-3 img-remove">
+                    <img  alt="eliminar">
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-12 h5 post">
+                <h5 id="note"> dsa</h5>    
+            </div>
+            <div class="col-xs-12 col-lg-12 h5 edit">
+                <img alt="like"> <img alt="editar">
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="col-xs-12 col-lg-6 box-text">
-    <textarea class="col-xs-12 text"> ¿Que quieres compartir?</textarea>
-    <div class="col-xs-12 box-btn-img">
-    <img class="col-xs-6" alt="img">
-    <button id="btn_note" class="col-xs-6 col-lg-12 btn fontsize" type="summit">publicar</button>
-    </div> 
-</div>
-<div class="col-xs-12 box-post-total">
-<div class="col-xs-12 box-post">
-    <div class="col-xs-12 box-remove">
-      <h5 class="col-xs-9 h5"> Publicado por </h5>
-      <div class="col-xs-3 img-remove">
-      <img  alt="eliminar">
-      </div>
-    </div>
-    <div class="col-xs-12 h5 post">
-      <h5> dsa</h5>    
-    </div>
-    <div class="col-xs-12 h5 edit">
-      <img alt="like"> <img alt="editar">
-    </div>
-</div>
+<div class="col-lg-2">
 </div>
 </section>
 `
@@ -71,6 +77,13 @@ div_3.innerHTML = homePage;
 
 const btn_logOut = div_3.querySelector('#logOut');
 btn_logOut.addEventListener('click',close_init);
+
+const btn_note=div_3.querySelector('#btn_note');
+btn_note.addEventListener("click",()=>{
+    const post= div_3.querySelector('#post').value;
+    const note= div_3.querySelector('#note');
+    note.innerHTML += post;
+})
 
 return div_3
 }
