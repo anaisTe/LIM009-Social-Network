@@ -1,7 +1,8 @@
 import { close_init } from "../view_controller.js";
-
+import {getUser} from "../controller/controller-firebase.js"
 export default () =>{
-
+const user= getUser();
+console.log(user);
 const div_3 = document.createElement('div');
 const homePage = `
 <header>
@@ -37,9 +38,9 @@ const homePage = `
 <div class="col-lg-2">
 </div>
 <div class="col-xs-12 col-lg-3 log2 card">
-    <img class="profile_img col-xs-3 col-lg-3" src="image/photo.png" alt="Avatar">
+    <img class="profile_img col-xs-3 col-lg-3" src="${user.photoURL}" alt="Avatar">
     <div class= "container col-xs-9 col-lg-9">
-        <h3>Usuario</h3> 
+        <h3>${user.displayName}</h3> 
         <h3>Edad</h3> 
     </div>
 </div>

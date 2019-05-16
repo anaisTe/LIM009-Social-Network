@@ -32,8 +32,34 @@ export const setUser = (userId, nameUser, emailUser) => {
         });
     return firestore
 }
+export const getUser = () => {
+    return firebase.auth().currentUser;
+  }
 
 //CERRAR SESION---------------------------
 export const log_Out = () =>{
     return firebase.auth().signOut()
 }
+
+
+//NOTAS--------------------------------------
+/*export const addNote = (textNewNote) =>{
+  const note_create = firebase.firestore().collection('notes').add({
+    title: textNewNote,
+    state: false
+})
+return note_create
+}
+
+export const notes = (callback) =>{
+  const view_notes =firebase.firestore().collection('notes')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() })
+      });
+      callback(data);
+   
+})
+return view_notes
+}*/
