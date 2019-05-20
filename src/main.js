@@ -18,7 +18,9 @@ export const init = () => {
   router_Main();
 };
 
-window.onload = init();
+window.onload = () => {
+  init();
+}
 
 /*const main = document.getElementById("main");
 main.appendChild(template1());*/

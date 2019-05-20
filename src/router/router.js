@@ -1,22 +1,3 @@
-//import { components } from "../router/components.js";
-
-/*export const changePage = (hash)=>{
-    // const id = hash.split('/')[1];
-    const divMain = document.getElementById('main');
-    divMain.innerHTML='';
-
-    switch (hash) {
-        case '#/register':{
-            divMain.appendChild(components.template2());
-        }
-        break;
-        case '#/init':{
-            divMain.appendChild(components.test());
-        }  
-        default:
-            return divMain.appendChild(components.template1())
-    }
-}*/
 import template1 from "../templates/template1.js"
 import template2 from "../templates/template2.js"
 import template3 from "../templates/template3.js"

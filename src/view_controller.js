@@ -1,9 +1,9 @@
 import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out} from './controller/controller-firebase.js'
 import { regCloudFirebase } from "./templates/template2.js";
+import { getFirestore, publish, getName, getNotesFirestore } from "./controller/controller-firebase.js"
 
 /*REGISTRO DE USUARIO--------------------------------*/
- export const registry = ()=>{
-    let user_name = document.querySelector('#user_name').value;
+export const registry = ()=>{
     let email =document.querySelector("#email").value;
     let password = document.querySelector("#contraseña").value;
     
@@ -11,9 +11,9 @@ import { regCloudFirebase } from "./templates/template2.js";
      .then(()=>{
       window.location.hash = '#/perfil'
       //SET USER TO FIRESTORE
-      var uid = firebase.auth().currentUser.uid;
-      regCloudFirebase(uid);
-      console.log('Hola ', uid)
+      var user = firebase.auth().currentUser;
+      regCloudFirebase(user, false);
+      console.log('Hola ', user.uid);
     })
      .catch((error)=>console.log(error.message))
 }
@@ -25,7 +25,9 @@ import { regCloudFirebase } from "./templates/template2.js";
     let password2 = document.querySelector("#contraseña2").value;
  
     logIn(email2,password2)
-     .then(()=>{ window.location.hash = '#/init'
+     .then(()=>{ 
+        window.location.hash = '#/init'
+        var user = firebase.auth().currentUser;
     }).catch(()=>alert("Intente nuevamente, datos erroneos"))
 }
   
@@ -35,13 +37,11 @@ import { regCloudFirebase } from "./templates/template2.js";
     .then(function(result) {
       window.location.hash="#/init";
       var token = result.credential.accessToken;
-      var user = result.user;
+      var user = firebase.auth().currentUser;
+      regCloudFirebase(user, true);
       console.log("token: ", token,"; user logeado ", user);
     }).catch(function(error) {
-      var errorCode = error.code;
       var errorMessage = error.message;
-      var email = error.email;
-      var credential = error.credential;
       console.log("error: ", errorMessage);
     });
 }
@@ -50,53 +50,79 @@ export const authGoogle = () =>{
   log_Goog()
   .then(()=>{
     window.location.hash="#/init";
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    //var token = result.credential.accessToken;
-    // The signed-in user info.
-    //var user = result.user;
-    //console.log("user: ", user); 
-    // ...
+    var user = firebase.auth().currentUser;
+    regCloudFirebase(user, true);
   }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
     var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
     console.log("error: ", errorMessage);
     // ...
   });
 }
 
-    /*OBSERVADOR -----------------------------------------*/
-export const observer = () =>{
-    observer_user ()
-    .then (function(user) {
-      if (user) {
-       console.log("existe usuario activo");
-         aparece();
-  
-        /* PARA ACCEDER AL DATOS DEL USUARIO---------- */
-      var displayName = user.displayName;
-       console.log(displayName);
-        var email = user.email;
-        console.log(email);
-       var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-         console.log(photoURL);
-         var isAnonymous = user.isAnonymous;
-         var uid = user.uid;
-       var providerData = user.providerData;
-        
-     } else {
-      
-       console.log("no existe usuario activo");
-       }
- }).catch(function(error){
-console.log("obervador error")
- })
-  }
+// print user name in temp3
+export const getData = (uid) => {
+  getFirestore(uid)
+  .then(function(doc) {
+    // window.location.hash="#/init";
+    if(doc.exists){
+      let username = document.querySelector('#username');
+      let avatar = document.querySelector('#avatar');
+      username.innerHTML = doc.get("name");
+      console.log(doc.get("photo"));
+      avatar.src = doc.get("photo");
+    }else{
+      console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error :", error.message);
+  });
+}
+
+export const getNotes = () => {
+  getNotesFirestore()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+      document.querySelector("#publishBy").innerHTML = doc.data().publishBy
+      document.querySelector("#note").innerHTML = doc.data().publishText
+      console.log(doc.id, " => ", doc.data());
+    });
+  }).catch(function(error) {
+    console.log("Error :", error.message);
+  });
+}
+
+//add notes
+export const setPublication = (publishBy, publishText) => {
+  publish(publishBy, publishText)
+  .then(()=>{
+    console.log("Publicación exitosa");
+  })
+   .catch((error)=>console.log("error: ", error.message));
+}
+
+//notes written by user and adding its name
+export const getUsername = (user, publishText) => {
+  let name;
+  getName(user.uid)
+  .then(function(doc) {
+    if(doc.exists){
+      name = doc.get("name");
+      console.log("publishBy: ", name);
+      if(typeof user.displayName == "object"){
+        setPublication(name, publishText);
+      }else{
+        setPublication(user.displayName, publishText);
+      }
+    }else{
+      console.log("No se pudo obtener el nombre");
+    }
+    return name
+  }).catch(function(error) {
+    console.log("Error getting document:", error.message);
+  });
+}
+
+
 
 
 /*CERRAR SESSION -----------------------------------------*/
