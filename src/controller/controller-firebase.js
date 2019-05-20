@@ -10,9 +10,9 @@ export const newUser = (email,password) =>{
   return firebase.firestore().collection("users").doc(userId).get();
 }
 
-export const getNotesFirestore = () => {
-  return firebase.firestore().collection("notes").get();
-}
+// export const getNotesFirestore = () => {
+//   return firebase.firestore().collection("notes").get();
+// }
 
 //INICIAR SESIÓN-------------------------------
 export const logIn = (email,password) =>{
@@ -93,11 +93,24 @@ export const publish = (publishBy, publishText) => {
   });
   return firestore
 }
+
+//llamando notas en tiempo real y se actualice 
+// export const dataNotes = (callback) => 
+//   firebase.firestore().collection("notes")
+//   .onSnapshot((querySnapshot) => {
+//         const arr_notes = [];
+//         querySnapshot.forEach(function(doc) {
+//           arr_notes.push(doc.data().name);
+//           console.log(arr_notes);
+//         });
+//         callback (arr_notes);
+// console.log("Current cities in CA: ", cities.join(", "));
+ //   })
+
 //get username by its uid
 export const getName = (userId) => {
   return firebase.firestore().collection("users").doc(userId).get()
 }
-
 //CERRAR SESION---------------------------
 export const log_Out = () =>{
     return firebase.auth().signOut()

@@ -1,6 +1,6 @@
-import {newUser,logIn,log_Fb, log_Goog, observer_user, log_Out} from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog, log_Out} from './controller/controller-firebase.js'
 import { regCloudFirebase } from "./templates/template2.js";
-import { getFirestore, publish, getName, getNotesFirestore } from "./controller/controller-firebase.js"
+import { getFirestore, publish, getName } from "./controller/controller-firebase.js"
 
 /*REGISTRO DE USUARIO--------------------------------*/
 export const registry = ()=>{
@@ -79,8 +79,9 @@ export const getData = (uid) => {
 }
 
 export const getNotes = () => {
-  getNotesFirestore()
-  .then(function(querySnapshot) {
+  // getNotesFirestore()
+    firebase.firestore().collection("notes")
+ .onSnapshot((querySnapshot) => {
     let publish_note=" "; 
     querySnapshot.forEach(function(doc) {
       const view_note =document.querySelector("#view_note");
@@ -88,7 +89,7 @@ export const getNotes = () => {
       //document.querySelector("#note").innerHTML = doc.data().publishText;
      publish_note +=`<div class="col-xs-12 col-lg-12 box-post">
     <div class="col-xs-12 col-lg-12 box-remove">
-        <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">${doc.data().publishBy}</h5>
+        <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data().publishBy}</h5>
         <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
             <img src="image/delete.svg" alt="eliminar">
         </div>
@@ -104,9 +105,10 @@ export const getNotes = () => {
 
       console.log(doc.id, " => ", doc.data());
     });
-  }).catch(function(error) {
-    console.log("Error :", error.message);
-  });
+  })
+  // .catch(function(error) {
+  //   console.log("Error :", error.message);
+  // });
 }
 
 //add notes
