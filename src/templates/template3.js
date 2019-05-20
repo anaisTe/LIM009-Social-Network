@@ -5,21 +5,7 @@ export default () =>{
 const div_3 = document.createElement('div');
 
 const publication = `
-<div class="col-xs-12 col-lg-12 box-post-total">
-<div class="col-xs-12 col-lg-12 box-post">
-    <div class="col-xs-12 col-lg-12 box-remove">
-        <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por</h5>
-        <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
-            <img src="image/delete.svg" alt="eliminar">
-        </div>
-    </div>
-    <div class="col-xs-12 col-lg-12 h5 post">
-        <h5 id="note">Aquí va mi nota!</h5>    
-    </div>
-    <div class="col-xs-12 col-lg-12 h5 edit">
-        <img src="image/like-wh.svg" alt="like"> <img src="image/coment.svg" alt="editar">
-    </div>
-</div>
+<div id="view_note" class="col-xs-12 col-lg-12 box-post-total">
 </div>`
 
 getNotes();

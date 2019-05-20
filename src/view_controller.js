@@ -81,9 +81,27 @@ export const getData = (uid) => {
 export const getNotes = () => {
   getNotesFirestore()
   .then(function(querySnapshot) {
+    let publish_note=" "; 
     querySnapshot.forEach(function(doc) {
-      document.querySelector("#publishBy").innerHTML = doc.data().publishBy
-      document.querySelector("#note").innerHTML = doc.data().publishText
+      const view_note =document.querySelector("#view_note");
+      //document.queryrySelector("#publishBy").innerHTML = doc.data().publishBy;
+      //document.querySelector("#note").innerHTML = doc.data().publishText;
+     publish_note +=`<div class="col-xs-12 col-lg-12 box-post">
+    <div class="col-xs-12 col-lg-12 box-remove">
+        <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">${doc.data().publishBy}</h5>
+        <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
+            <img src="image/delete.svg" alt="eliminar">
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-12 h5 post">
+        <h5 id="note">${doc.data().publishText}</h5>    
+    </div>
+    <div class="col-xs-12 col-lg-12 h5 edit">
+        <img src="image/like-wh.svg" alt="like"> <img src="image/coment.svg" alt="editar">
+    </div>
+</div>` ;
+    view_note.innerHTML=publish_note;
+
       console.log(doc.id, " => ", doc.data());
     });
   }).catch(function(error) {
