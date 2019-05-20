@@ -1,4 +1,4 @@
-import {newUser,logIn,log_Fb, log_Goog, log_Out} from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog, log_Out, delete_Notes} from './controller/controller-firebase.js'
 import { regCloudFirebase } from "./templates/template2.js";
 import { getFirestore, publish, getName } from "./controller/controller-firebase.js"
 
@@ -81,7 +81,7 @@ export const getData = (uid) => {
 export const getNotes = () => {
   // getNotesFirestore()
     firebase.firestore().collection("notes")
- .onSnapshot((querySnapshot) => {
+    .onSnapshot((querySnapshot) => {
     let publish_note=" "; 
     querySnapshot.forEach(function(doc) {
       const view_note =document.querySelector("#view_note");
@@ -91,7 +91,7 @@ export const getNotes = () => {
     <div class="col-xs-12 col-lg-12 box-remove">
         <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data().publishBy}</h5>
         <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
-            <img src="image/delete.svg" alt="eliminar">
+            <img id="delete-${doc.id}" src="image/delete.svg" class="pointer" alt="eliminar">
         </div>
     </div>
     <div class="col-xs-12 col-lg-12 h5 post">
@@ -103,14 +103,13 @@ export const getNotes = () => {
 </div>` ;
     view_note.innerHTML=publish_note;
 
-      console.log(doc.id, " => ", doc.data());
+    const btn_delete = document.querySelector(`#delete-${doc.id}`);
+    btn_delete.addEventListener('click', ()=>  delete_Notes(doc.id));
+
+    console.log(doc.id, " => ", doc.data());
     });
   })
-  // .catch(function(error) {
-  //   console.log("Error :", error.message);
-  // });
 }
-
 //add notes
 export const setPublication = (publishBy, publishText) => {
   publish(publishBy, publishText)
@@ -142,8 +141,15 @@ export const getUsername = (user, publishText) => {
   });
 }
 
-
-
+// //delete notes
+// const deletingNotes = (doc) => 
+// delete_Notes(doc.id)
+// .then(function() {
+//   console.log("Document successfully deleted!");
+// })
+// .catch(function(error) {
+//   console.error("Error removing document: ", error);
+// });
 
 /*CERRAR SESSION -----------------------------------------*/
 export const close_init = () =>{
