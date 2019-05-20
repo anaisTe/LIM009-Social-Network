@@ -17,11 +17,17 @@ header{
     .h5{padding: 15px 0 15px 15px}
     .box-post-total{padding: 25px 0 0 0}
     .box-post{border: solid 1px rgba(0, 0, 0, 0.322);}
-    .img-remove{padding: 5px}
+    .img-remove{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 8px;
+    }
     .img-remove img{
-        width: 20%;
-        padding-top: 5px;
+        width: 14px;
+        padding-top: 10px;
         padding-bottom: 5px;
+        margin-right: 15px;
     }
     .edit{background: rgba(95, 158, 160, 0.082)}
     .edit img {
