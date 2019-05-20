@@ -86,7 +86,7 @@ export const setUser = (userId, nameUser, emailUser) => {
 
 //add new collection named 'notes'
 export const publish = (publishBy, publishText) => {
-  count += 1;
+  //count += 2;
   var firestore = firebase.firestore().collection("notes").doc(count.toString()).set({
       publishBy: publishBy,
       publishText: publishText
