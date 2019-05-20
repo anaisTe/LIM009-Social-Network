@@ -17,7 +17,7 @@ const publication = `
         <h5 id="note">Aquí va mi nota!</h5>    
     </div>
     <div class="col-xs-12 col-lg-12 h5 edit">
-        <img alt="like"> <img alt="editar">
+        <img src="image/like-wh.svg" alt="like"> <img src="image/coment.svg" alt="editar">
     </div>
 </div>
 </div>`
