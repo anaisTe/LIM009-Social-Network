@@ -18,6 +18,11 @@ header{
     .box-post-total{padding: 25px 0 0 0}
     .box-post{border: solid 1px rgba(0, 0, 0, 0.322);}
     .img-remove{padding: 5px}
+    .img-remove img{
+        width: 20%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
     .edit{background: rgba(95, 158, 160, 0.082)}
     .box-remove{background: cadetblue;}
     .box-section{padding: 0  15px 0 15px;}

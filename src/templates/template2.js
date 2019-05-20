@@ -37,15 +37,25 @@ export default () => {
   return div2
 }
 
-export const regCloudFirebase = (uid) => {
-  var name = div2.querySelector("#user_name").value;
-  var email = div2.querySelector("#email").value;
-  //SET USER TO FIRESTORE
-  setUser(uid, name, email)
-  .then(()=> {
-    console.log("Logueo exitoso");
-  })
-  .catch((error) => {
-      console.error("Error: ", error);
-  });
+export const regCloudFirebase = (user, fromRedes) => {
+  if(fromRedes){
+    setUser(user.uid, user.displayName, user.email)
+    .then(()=> {
+      console.log("Logueo exitoso");
+    })
+    .catch((error) => {
+        console.error("Error: ", error);
+    });
+  }else {
+    var name = div2.querySelector("#user_name").value;
+    var email = div2.querySelector("#email").value;
+    //SET USER TO FIRESTORE
+    setUser(user.uid, name, email)
+    .then(()=> {
+      console.log("Logueo exitoso");
+    })
+    .catch((error) => {
+        console.error("Error: ", error);
+    });
+  }
 }
