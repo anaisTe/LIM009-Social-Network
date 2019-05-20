@@ -97,7 +97,7 @@ export const getNotes = () => {
         <h5 id="note">${doc.data().publishText}</h5>    
     </div>
     <div class="col-xs-12 col-lg-12 h5 edit">
-        <img alt="like"> <img alt="editar">
+        <img src="image/like-wh.svg" alt="like"> <img src="image/coment.svg" alt="editar">
     </div>
 </div>` ;
     view_note.innerHTML=publish_note;
