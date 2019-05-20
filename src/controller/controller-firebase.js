@@ -93,20 +93,16 @@ export const publish = (publishBy, publishText) => {
   });
   return firestore
 }
-
-//llamando notas en tiempo real y se actualice 
-// export const dataNotes = (callback) => 
-//   firebase.firestore().collection("notes")
-//   .onSnapshot((querySnapshot) => {
-//         const arr_notes = [];
-//         querySnapshot.forEach(function(doc) {
-//           arr_notes.push(doc.data().name);
-//           console.log(arr_notes);
-//         });
-//         callback (arr_notes);
-// console.log("Current cities in CA: ", cities.join(", "));
- //   })
-
+//deleting notes
+export const delete_Notes = (id) =>{ 
+  firebase.firestore().collection("notes").doc(id).delete()
+//   .then(function() {
+//   console.log("Document successfully deleted!");
+// })
+// .catch(function(error) {
+//   console.error("Error removing document: ", error);
+// });
+}
 //get username by its uid
 export const getName = (userId) => {
   return firebase.firestore().collection("users").doc(userId).get()
