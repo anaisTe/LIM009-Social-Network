@@ -91,14 +91,14 @@ export const getNotes = () => {
     <div class="col-xs-12 col-lg-12 box-remove">
         <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data().publishBy}</h5>
         <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
-            <img id="delete-${doc.id}" src="image/delete.svg" class="pointer" alt="eliminar">
+            <img id="delete-${doc.id}" src="image/cancel-mark.svg" class="pointer" alt="eliminar">
         </div>
     </div>
     <div class="col-xs-12 col-lg-12 h5 post">
         <h5 id="note">${doc.data().publishText}</h5>    
     </div>
     <div class="col-xs-12 col-lg-12 h5 edit">
-        <img src="image/like-wh.svg" alt="like"> <img src="image/coment.svg" alt="editar">
+        <img src="image/heart.svg" alt="like"> <img src="image/paper-plane.svg" alt="editar">
     </div>
 </div>` ;
     view_note.innerHTML=publish_note;
