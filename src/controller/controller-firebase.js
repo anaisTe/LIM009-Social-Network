@@ -1,4 +1,5 @@
 import { getData, getUsername } from "../view_controller.js"
+import{template_notes } from "../templates/template3.js"
 let count = 0;
 
 // CREAR CUENTA-------------------------------
@@ -16,15 +17,15 @@ export const newUser = (email,password) =>{
 
 //INICIAR SESIÓN-------------------------------
 export const logIn = (email,password) =>{
-    let auth = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-    .then(() => {
+     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    /*.then(() => {*/
       return firebase.auth().signInWithEmailAndPassword(email, password)
-    })
+    /*})
     .catch((error) => {
-      console.log(error.message);
+      alert(error, "Intente nuevamente, datos erroneos");
     })
 
-    return auth
+    return auth*/
 }
 
 //LOGIN CON FACEBOOK---------------------------
@@ -93,6 +94,18 @@ export const publish = (publishBy, publishText) => {
   });
   return firestore
 }
+//-AGREGAR NOTAS----------------------------------
+export const addNote =() =>{
+  firebase.firestore().collection("notes")
+  .onSnapshot((querySnapshot) => {
+  querySnapshot.forEach(function(doc) {
+    template_notes ()
+  //console.log(doc.id, " => ", doc.data());
+  });
+})
+}
+
+
 //deleting notes
 export const delete_Notes = (id) =>{ 
   firebase.firestore().collection("notes").doc(id).delete()
