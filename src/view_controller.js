@@ -1,4 +1,4 @@
-import {newUser,logIn,log_Fb, log_Goog, log_Out,addNote } from './controller/controller-firebase.js'
+import {newUser,logIn,log_Fb, log_Goog, log_Out, delete_Notes} from './controller/controller-firebase.js'
 import { regCloudFirebase } from "./templates/template2.js";
 import { getFirestore, publish, getName } from "./controller/controller-firebase.js"
 
@@ -28,8 +28,7 @@ export const registry = ()=>{
      .then(()=>{ 
         window.location.hash = '#/init'
         var user = firebase.auth().currentUser;
-        console.log(user);
-    }).catch(()=>{alert("Intente nuevamente, datos erroneos")})
+    }).catch(()=>alert("Intente nuevamente, datos erroneos"))
 }
   
   /*inicio FB-----------------------------------------*/
@@ -81,11 +80,35 @@ export const getData = (uid) => {
 
 export const getNotes = () => {
   // getNotesFirestore()
-  addNote()
-  .then(()=>{
-    console.log("si se pudo")
+    firebase.firestore().collection("notes")
+    .onSnapshot((querySnapshot) => {
+    let publish_note=" "; 
+    querySnapshot.forEach(function(doc) {
+      const view_note =document.querySelector("#view_note");
+      //document.queryrySelector("#publishBy").innerHTML = doc.data().publishBy;
+      //document.querySelector("#note").innerHTML = doc.data().publishText;
+     publish_note +=`<div class="col-xs-12 col-lg-12 box-post">
+    <div class="col-xs-12 col-lg-12 box-remove">
+        <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data().publishBy}</h5>
+        <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
+            <img id="delete-${doc.id}" src="image/cancel-mark.svg" class="pointer" alt="eliminar">
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-12 h5 post">
+        <h5 id="note">${doc.data().publishText}</h5>    
+    </div>
+    <div class="col-xs-12 col-lg-12 h5 edit">
+        <img src="image/heart.svg" alt="like"> <img src="image/paper-plane.svg" alt="editar">
+    </div>
+</div>` ;
+    view_note.innerHTML=publish_note;
+
+    const btn_delete = document.querySelector(`#delete-${doc.id}`);
+    btn_delete.addEventListener('click', ()=>  delete_Notes(doc.id));
+
+    console.log(doc.id, " => ", doc.data());
+    });
   })
-  .catch((error)=>console.log("error: ",error))
 }
 //add notes
 export const setPublication = (publishBy, publishText) => {

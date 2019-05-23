@@ -1,5 +1,4 @@
 import { getData, getUsername } from "../view_controller.js"
-import{template_notes } from "../templates/template3.js"
 let count = 0;
 
 // CREAR CUENTA-------------------------------
@@ -95,15 +94,15 @@ export const publish = (publishBy, publishText) => {
   return firestore
 }
 //-AGREGAR NOTAS----------------------------------
-export const addNote =() =>{
-  firebase.firestore().collection("notes")
-  .onSnapshot((querySnapshot) => {
-  querySnapshot.forEach(function(doc) {
-    template_notes ()
-  //console.log(doc.id, " => ", doc.data());
-  });
-})
-}
+// export const addNote =() =>{
+//   firebase.firestore().collection("notes")
+//   .onSnapshot((querySnapshot) => {
+//   querySnapshot.forEach(function(doc) {
+//     template_notes ()
+//   //console.log(doc.id, " => ", doc.data());
+//   });
+// })
+// }
 
 
 //deleting notes

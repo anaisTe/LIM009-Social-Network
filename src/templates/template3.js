@@ -1,38 +1,15 @@
 import { close_init, getNotes } from "../view_controller.js";
-import { observer_user, setPublication,delete_Notes } from "../controller/controller-firebase.js";
-
-export const template_notes =()=>{
-    //getNotes();
-    const div_4 = document.createElement('div'); 
-    let publish_note= " "; 
-    publish_note += `
-<div id="view_note" class="col-xs-12 col-lg-12 box-post-total">
-<div class="col-xs-12 col-lg-12 box-post">
-    <div class="col-xs-12 col-lg-12 box-remove">
-        <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data().publishBy}</h5>
-        <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
-            <img id="delete-${doc.id}" src="image/delete.svg" class="pointer" alt="eliminar">
-        </div>
-    </div>
-    <div class="col-xs-12 col-lg-12 h5 post">
-        <h5 id="note">${doc.data().publishText}</h5>    
-    </div>
-    <div class="col-xs-12 col-lg-12 h5 edit">
-        <img src="image/like-wh.svg" alt="like"> <img src="image/coment.svg" alt="editar">
-    </div>
-</div>
-</div>`
-
-div_4.innerHTML =publish_note;
-
-const btn_delete = document.querySelector(`#delete-${doc.id}`);
-btn_delete.addEventListener('click', ()=>  delete_Notes(doc.id));
-
-return div_4
-}
+import { observer_user, setPublication } from "../controller/controller-firebase.js";
 
 export default () =>{ 
-    const div_3 = document.createElement('div');
+const div_3 = document.createElement('div');
+
+const publication = `
+<div id="view_note" class="col-xs-12 col-lg-12 box-post-total">
+</div>`
+
+getNotes();
+
 const homePage = `
 <header>
     <input type="checkbox" id="btn-menu" />
@@ -80,7 +57,7 @@ const homePage = `
             <button id="btn_note" class="col-xs-6 col-lg-6 btn fontsize" type="summit">publicar</button>
         </div> 
     </div>
-    ${div_4}
+    ${publication}
 </div>
 
 <div class="col-lg-2">
