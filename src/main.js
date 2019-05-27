@@ -20,6 +20,7 @@ export const init = () => {
 
 window.onload = () => {
   init();
+  
 }
 
 /*const main = document.getElementById("main");

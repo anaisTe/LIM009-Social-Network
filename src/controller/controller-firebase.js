@@ -1,4 +1,5 @@
 import { getData, getUsername } from "../view_controller.js"
+import {getNotes} from '../templates/post.js'
 let count = 0;
 
 // CREAR CUENTA-------------------------------
@@ -10,21 +11,12 @@ export const newUser = (email,password) =>{
   return firebase.firestore().collection("users").doc(userId).get();
 }
 
-// export const getNotesFirestore = () => {
-//   return firebase.firestore().collection("notes").get();
-// }
 
 //INICIAR SESIÓN-------------------------------
 export const logIn = (email,password) =>{
      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-    /*.then(() => {*/
       return firebase.auth().signInWithEmailAndPassword(email, password)
-    /*})
-    .catch((error) => {
-      alert(error, "Intente nuevamente, datos erroneos");
-    })
-
-    return auth*/
+   
 }
 
 //LOGIN CON FACEBOOK---------------------------
@@ -63,16 +55,7 @@ export const observer_user = () =>{
   });
 }
 
-export const setPublication = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let post= document.querySelector('#post');
-      getUsername(user, post.value);
-      post.value = "";
-      alert("Publicación exitosa!");
-    }
-  });
-}
+
 
 //SET USER TO FIRESTORE
 export const setUser = (userId, nameUser, emailUser) => {
@@ -93,16 +76,29 @@ export const publish = (publishBy, publishText) => {
   });
   return firestore
 }
+
+export const set_Publication = () => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let post= document.querySelector('#post');
+      getUsername(user, post.value);
+      post.value = "";
+      alert("Publicación exitosa!");
+    }
+  });
+}
 //-AGREGAR NOTAS----------------------------------
-// export const addNote =() =>{
-//   firebase.firestore().collection("notes")
-//   .onSnapshot((querySnapshot) => {
-//   querySnapshot.forEach(function(doc) {
-//     template_notes ()
-//   //console.log(doc.id, " => ", doc.data());
-//   });
-// })
-// }
+ export const addNote =(callback) =>{
+   const firestore=firebase.firestore();
+    firestore.collection("notes").doc().collection("comments")
+   .onSnapshot(querySnapshot => {
+     const comment = [];
+   querySnapshot.forEach(doc => {
+     comment.push({ id: doc.id, doc: doc.data()})
+     })
+     callback(comment)
+ })
+ }
 
 
 //deleting notes

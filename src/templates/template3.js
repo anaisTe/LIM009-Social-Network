@@ -1,15 +1,10 @@
-import { close_init, getNotes } from "../view_controller.js";
-import { observer_user, setPublication } from "../controller/controller-firebase.js";
+import { close_init} from "../view_controller.js";
+import { observer_user, set_Publication,addNote} from "../controller/controller-firebase.js";
+import {getNotes} from '../templates/post.js'
 
 export default () =>{ 
 const div_3 = document.createElement('div');
-
-const publication = `
-<div id="view_note" class="col-xs-12 col-lg-12 box-post-total">
-</div>`
-
-getNotes();
-
+const publication= getNotes()
 const homePage = `
 <header>
     <input type="checkbox" id="btn-menu" />
@@ -57,7 +52,9 @@ const homePage = `
             <button id="btn_note" class="col-xs-6 col-lg-6 btn fontsize" type="summit">publicar</button>
         </div> 
     </div>
-    ${publication}
+    <div id="view_note" class="col-xs-12 col-lg-12 box-post-total">
+     ${publication}
+</div>
 </div>
 
 <div class="col-lg-2">
@@ -66,13 +63,16 @@ const homePage = `
 `
 div_3.innerHTML = homePage;
 
+//const view_note= div_3.querySelector('#view_note');
+const btn_note=div_3.querySelector('#btn_note');
+btn_note.addEventListener("click",set_Publication);
+
+
 const btn_logOut = div_3.querySelector('#logOut');
 btn_logOut.addEventListener('click',close_init);
 
 observer_user();
 
-const btn_note=div_3.querySelector('#btn_note');
-btn_note.addEventListener("click", setPublication)
 
 return div_3
 }
