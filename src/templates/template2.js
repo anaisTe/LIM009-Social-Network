@@ -39,7 +39,7 @@ export default () => {
 
 export const regCloudFirebase = (user, fromRedes) => {
   if(fromRedes){
-    setUser(user.uid, user.displayName, user.email)
+    setUser(user.uid, user.displayName, user.email,user.photoURL)
     .then(()=> {
       console.log("Logueo exitoso");
     })

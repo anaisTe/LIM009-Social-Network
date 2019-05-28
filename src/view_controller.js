@@ -23,11 +23,9 @@ export const registry = ()=>{
  export const userLogin =() =>{
     let email2 = document.querySelector("#email2").value;
     let password2 = document.querySelector("#contraseña2").value;
- 
     logIn(email2,password2)
      .then(()=>{ 
         window.location.hash = '#/init'
-        var user = firebase.auth().currentUser;
     }).catch(()=>alert("Intente nuevamente, datos erroneos"))
 }
   
@@ -59,11 +57,10 @@ export const authGoogle = () =>{
   });
 }
 
-// print user name in temp3
+// print user name in temp3--------------------------------------------------
 export const getData = (uid) => {
   getFirestore(uid)
   .then(function(doc) {
-    // window.location.hash="#/init";
     if(doc.exists){
       let username = document.querySelector('#username');
       let avatar = document.querySelector('#avatar');
@@ -77,7 +74,6 @@ export const getData = (uid) => {
     console.log("Error :", error.message);
   });
 }
-
 
 //add notes
 const addPublication = (publishBy, publishText) => {

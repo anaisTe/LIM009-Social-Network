@@ -1,10 +1,12 @@
 import { close_init} from "../view_controller.js";
-import { observer_user, set_Publication,addNote} from "../controller/controller-firebase.js";
+import { observer_user, set_Publication} from "../controller/controller-firebase.js";
 import {getNotes} from '../templates/post.js'
 
 export default () =>{ 
 const div_3 = document.createElement('div');
-const publication= getNotes()
+//const user=getPhoto();
+//console.log(user);
+const publication= getNotes();
 const homePage = `
 <header>
     <input type="checkbox" id="btn-menu" />
@@ -39,7 +41,7 @@ const homePage = `
 <div class="col-lg-2">
 </div>
 <div class="col-xs-12 col-lg-3 log2 card">
-    <img id="avatar" class="profile_img col-xs-3 col-lg-3" alt="Avatar">
+    <img id="avatar" class="profile_img col-xs-3 col-lg-3" alt="Avatar" >
     <div class= "container col-xs-9 col-lg-9">
         <h3 id="username"></h3> 
     </div>
@@ -50,6 +52,12 @@ const homePage = `
         <div class="col-xs-12 col-lg-12 box-btn-img">
             <!--img class="col-xs-6 col-lg-6" alt="img"-->
             <button id="btn_note" class="col-xs-6 col-lg-6 btn fontsize" type="summit">publicar</button>
+            <select class="col-xs-3 col-lg-3"  id="select_post">
+                <option value="a
+                ">privacidad</option>
+                <option value="private">Privado</option>
+                <option value="public">Público</option>
+            </select>
         </div> 
     </div>
     <div id="view_note" class="col-xs-12 col-lg-12 box-post-total">
@@ -70,6 +78,9 @@ btn_note.addEventListener("click",set_Publication);
 
 const btn_logOut = div_3.querySelector('#logOut');
 btn_logOut.addEventListener('click',close_init);
+
+//const select = div_3.querySelector("#select_post");
+//console.log(select);
 
 observer_user();
 
