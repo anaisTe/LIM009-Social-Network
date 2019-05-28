@@ -1,5 +1,5 @@
-import {delete_Notes,new_note_edit } from '../controller/controller-firebase.js'
-
+import {delete_Notes } from '../controller/controller-firebase.js'
+import {edit_Note,save_Note} from  './accion-post.js'
 export const getNotes = () => {
   // getNotesFirestore()
  
@@ -38,23 +38,12 @@ export const getNotes = () => {
     document.querySelector(`#note-${doc.id}`).readOnly = true;  
 
     const btn_edit = document.querySelector(`#edit-${doc.id}`);
-    btn_edit.addEventListener('click', (id) => {
-      view_note.querySelector(`#note-${id}`).readOnly = false;
-      view_note.querySelector(`#like-${id}`).style.display = 'none';
-      view_note.querySelector(`#edit-${id}`).style.display = 'none';
-      view_note.querySelector(`#save-${id}`).className += 'show-save';
-    });    
+    btn_edit.addEventListener('click', () => edit_Note(doc.id)); 
 
     const btn_save = document.querySelector(`#save-${doc.id}`);
-    btn_save.addEventListener('click', (id) => {
-      view_note.querySelector(`#note-${id}`).readOnly = true;
-      view_note.querySelector(`#like-${id}`).style.display = 'block';
-      view_note.querySelector(`#edit-${id}`).style.display = 'block';
-      view_note.querySelector(`#save-${id}`).className += 'hide-save';
-    new_note_edit ();
-  });    
-    console.log(doc.id, " => ", doc.data());
-    
+    btn_save.addEventListener('click', () => save_Note(doc.id));
+  
+    console.log(doc.id, " => ", doc.data());    
   });
   })
  }
