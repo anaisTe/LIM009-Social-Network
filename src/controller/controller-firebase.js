@@ -1,4 +1,5 @@
-import { getData, getUsername } from "../view_controller.js"
+import { getData } from "../view_controller.js"
+import{getUsername}from "../view_controller.js"
 
 // CREAR CUENTA--------------------------------------------------------------------------
 export const newUser = (email,password) =>{
@@ -50,26 +51,46 @@ export const setUser = (userId, nameUser, emailUser) => {
   return firebase.firestore().collection("users").doc(userId).get();
 }
 //add new collection named 'notes'--------------------------------------------------------------------
-export const publish = (publishBy, publishText) => {
+export const publish = (publishBy, publishText,visibility) => {
   //count += 2;
   var firestore = firebase.firestore().collection("notes").doc().set({
       publishBy: publishBy,
       publishText: publishText,
-     
+      state: visibility
   });
   return firestore
 }
 //TOMA EL VALOR DEL POST --------------------------------------------------------------------------
-export const set_Publication = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let post= document.querySelector('#post');
-      getUsername(user, post.value);
-      post.value = "";
-      alert("Publicación exitosa!");
-    }
-  });
-}
+ export const set_Publication = () => {
+   firebase.auth().onAuthStateChanged(function(user) {
+     if(user){
+       let post= document.querySelector('#post');
+       let visibility = document.querySelector('#select_post').value; 
+       getUsername(user, post.value,visibility);
+       post.value = "";
+       alert("Publicación exitosa!");
+     }
+   });
+ }
+//ADDING NOTES--------------------------------------------------------------------------------------
+export const view_publish = (callback) => {
+  let user = firebase.auth().currentUser;
+firebase.firestore().collection("notes")
+  // .orderBy('date', 'desc')
+  .onSnapshot((querySnapshot) => {
+    let data = [];
+    querySnapshot.forEach((doc) => {
+      const arrData = {
+        id: doc.id,
+        data: doc.data()
+      };
+        data.push(arrData);
+         if (doc.data().state === "public") {
+         }  
+        })
+    callback(data);
+  })
+ };
 //deleting notes----------------------------------------------------------
 export const delete_Notes = (id) =>{ 
   firebase.firestore().collection("notes").doc(id).delete()

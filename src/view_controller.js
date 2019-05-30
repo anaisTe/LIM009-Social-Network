@@ -76,8 +76,8 @@ export const getData = (uid) => {
 }
 
 //add notes
-const addPublication = (publishBy, publishText) => {
-  publish(publishBy, publishText)
+const addPublication = (publishBy, publishText,visibility) => {
+  publish(publishBy, publishText,visibility)
   .then(()=>{
     console.log("Publicación exitosa");
   })
@@ -85,7 +85,7 @@ const addPublication = (publishBy, publishText) => {
 }
 
 //notes written by user and adding its name
-export const getUsername = (user, publishText) => {
+export const getUsername = (user, publishText,visibility) => {
   let name;
   getName(user.uid)
   .then(function(doc) {
@@ -93,9 +93,9 @@ export const getUsername = (user, publishText) => {
       name = doc.get("name");
       console.log("publishBy: ", name);
       if(typeof user.displayName == "object"){
-        addPublication(name, publishText);
+        addPublication(name, publishText,visibility);
       }else{
-        addPublication(user.displayName, publishText);
+        addPublication(user.displayName, publishText,visibility);
       }
     }else{
       console.log("No se pudo obtener el nombre");
