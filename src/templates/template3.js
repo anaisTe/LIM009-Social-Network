@@ -1,7 +1,7 @@
 import { close_init} from "../view_controller.js";
-import { observer_user, delete_Notes,view_publish,set_Publication} from "../controller/controller-firebase.js";
-// import {getNotes} from '../templates/post.js'
-import {edit_Note,save_Note} from  './accion-post.js'
+import { observer_user,set_Publication} from "../controller/controller-firebase.js";
+import {getNotes} from '../templates/post.js'
+//import {edit_Note,save_Note} from  './accion-post.js'
 
 
 
@@ -68,24 +68,9 @@ const homePage = `
 `
 div_3.innerHTML = homePage;
  
-//const view_note= div_3.querySelector('#view_note');
-/*const post= div_3.querySelector('#post').value;
-const btn_note=div_3.querySelector('#btn_note');
-btn_note.addEventListener("click", ()=> { 
-    if(typeof post === "string"){
-        console.log(post);
-    }
-    //   alert("Publicación exitosa!");   
-  });*/
 const btn_note = div_3.querySelector("#btn_note");
 btn_note.addEventListener("click",()=>{
-    let publishText = div_3.querySelector('#post').value;
-    let visibility = div_3.querySelector('#select_post').value;
-    //set_Publication();
-    console.log(publishText);
-    console.log(visibility);
-   // publish()
-   set_Publication(publishText,visibility,name)
+   set_Publication()
 })
 
 const btn_logOut = div_3.querySelector('#logOut');
@@ -94,47 +79,7 @@ btn_logOut.addEventListener('click',close_init);
 observer_user();
 
 
-const view_note =div_3.querySelector("#view_note");
-const getNotes = (data) => {
-    view_note.innerHTML="";
-    data.forEach(doc => {
-    const publish_note = document.createElement("div");
-    publish_note.innerHTML =`
-      <div class="col-xs-12 col-lg-12 box-post">
-        <div class="col-xs-12 col-lg-12 box-remove">
-            <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data.publishBy}</h5>
-            <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
-                
-                <button id="delete-${doc.id}" >eliminar</button>
-            </div>
-        </div>
-        <div class="col-xs-12 col-lg-12 h5 post">
-            <input id="note-${doc.id}" type="text" value="${doc.data.publishText}"/>
-        </div>
-        <div class="col-xs-12 col-lg-12 h5 edit">
-            <img id="like-${doc.id}" src="image/heart.svg" alt="like">
-            <img id="edit-${doc.id}" src="image/paper-plane.svg" alt="editar">
-            <img class="hide-save" id="save-${doc.id}" src="image/save.svg" alt="guardar">
-        </div>
-      </div>` ;
-    
-    const btn_delete =  publish_note.querySelector(`#delete-${doc.id}`);
-    btn_delete.addEventListener('click', ()=>{
-      delete_Notes(doc.id); console.log("se hizo click")} );
+getNotes();
 
-    publish_note.querySelector(`#note-${doc.id}`).readOnly = true;  
-
-    const btn_edit = publish_note.querySelector(`#edit-${doc.id}`);
-    btn_edit.addEventListener('click', () => edit_Note(doc.id)); 
-
-    const btn_save = publish_note.querySelector(`#save-${doc.id}`);
-    btn_save.addEventListener('click', () => save_Note(doc.id));
-  
-    console.log(doc.id, " => ", doc.data); 
-    view_note.appendChild(publish_note);
-    });
-}
-//window.onload = 
-view_publish(getNotes);
 return div_3
 }

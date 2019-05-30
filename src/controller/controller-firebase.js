@@ -66,6 +66,8 @@ export const publish = (publishBy, publishText,visibility) => {
      if(user){
        let post= document.querySelector('#post');
        let visibility = document.querySelector('#select_post').value; 
+       console.log(post.value);
+       console.log(visibility)
        getUsername(user, post.value,visibility);
        post.value = "";
        alert("Publicación exitosa!");
