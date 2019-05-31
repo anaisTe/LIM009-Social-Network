@@ -35,7 +35,7 @@ const viewTmp = (routers) =>{
         divMain.appendChild(template3());
         break;
 
-        case "#/close" :
+        case " " :
         divMain.appendChild(template1());
         break;
         

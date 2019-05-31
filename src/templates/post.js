@@ -14,8 +14,7 @@ export const getNotes = () => {
       <div class="col-xs-12 col-lg-12 box-remove">
           <h5 id="publishBy" class="col-xs-9 col-lg-9 h5">Publicado por ${doc.data.publishBy}</h5>
           <div id="deleteNote" class="col-xs-3 col-lg-3 img-remove">
-              
-              <button id="delete-${doc.id}" >eliminar</button>
+          <img id="delete-${doc.id}" src="image/cancel-mark.svg" class="pointer" alt="eliminar">
           </div>
       </div>
       <div class="col-xs-12 col-lg-12 h5 post">

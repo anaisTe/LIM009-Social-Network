@@ -30,7 +30,7 @@ const homePage = `
                 <img src="image/brain.png" class="logo" />
             </li>
             <li>
-                <a href="#/close" id="logOut">
+                <a href=" " id="logOut">
                     <img src="image/logout-wht.png" />Cerrar Sesión
                 </a>
             </li>
