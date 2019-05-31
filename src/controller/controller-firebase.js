@@ -51,47 +51,50 @@ export const setUser = (userId, nameUser, emailUser) => {
   return firebase.firestore().collection("users").doc(userId).get();
 }
 //add new collection named 'notes'--------------------------------------------------------------------
-export const publish = (publishBy, publishText,visibility) => {
+export const publish = (publishBy, publishText, uid, state) => {
   //count += 2;
   var firestore = firebase.firestore().collection("notes").doc().set({
       publishBy: publishBy,
       publishText: publishText,
-      state: visibility
+      uid: uid,
+      state: state
   });
   return firestore
 }
+
+export const getPublicPosts = () => {
+  return firebase.firestore().collection("notes").where("state", "==", "public").get()
+};
 //TOMA EL VALOR DEL POST --------------------------------------------------------------------------
- export const set_Publication = () => {
-   firebase.auth().onAuthStateChanged(function(user) {
-     if(user){
-       let post= document.querySelector('#post');
-       let visibility = document.querySelector('#select_post').value; 
-       console.log(post.value);
-       console.log(visibility)
-       getUsername(user, post.value,visibility);
-       post.value = "";
-       alert("Publicación exitosa!");
-     }
-   });
- }
+export const set_Publication = (post, state) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      getUsername(user, post, user.uid, state);
+      alert("Publicación exitosa!");
+    }
+  });
+}
 //ADDING NOTES--------------------------------------------------------------------------------------
 export const view_publish = (callback) => {
-  let user = firebase.auth().currentUser;
-firebase.firestore().collection("notes")
-  // .orderBy('date', 'desc')
-  .onSnapshot((querySnapshot) => {
-    let data = [];
-    querySnapshot.forEach((doc) => {
-      const arrData = {
-        id: doc.id,
-        data: doc.data()
-      };
-        data.push(arrData);
-         if (doc.data().state === "public") {
-         }  
+  var fireb = firebase.firestore();
+  firebase.auth().onAuthStateChanged((user) => {
+    if(user){
+      fireb.collection("notes")
+      .onSnapshot((querySnapshot) => {
+        let data = [];
+        querySnapshot.forEach((doc) => {
+          if(doc.get("state") == "public" || doc.get("uid") == user.uid){
+            const arrData = {
+              id: doc.id,
+              data: doc.data()
+            };
+            data.push(arrData); 
+          }
         })
-    callback(data);
-  })
+        callback(data);
+      })
+    }
+  });
  };
 //deleting notes----------------------------------------------------------
 export const delete_Notes = (id) =>{ 

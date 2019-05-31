@@ -1,6 +1,6 @@
-import {newUser,logIn,log_Fb, log_Goog, log_Out} from './controller/controller-firebase.js'
+import { newUser,logIn,log_Fb, log_Goog, log_Out} from './controller/controller-firebase.js'
 import { regCloudFirebase } from "./templates/template2.js";
-import { getFirestore, publish, getName } from "./controller/controller-firebase.js"
+import { getFirestore, publish, getName, getPublicPosts } from "./controller/controller-firebase.js"
 
 /*REGISTRO DE USUARIO--------------------------------*/
 export const registry = ()=>{
@@ -65,10 +65,9 @@ export const getData = (uid) => {
       let username = document.querySelector('#username');
       let avatar = document.querySelector('#avatar');
       username.innerHTML = doc.get("name");
-      console.log(doc.get("photo"));
       avatar.src = doc.get("photo");
     }else{
-      console.log("No such document!");
+      // console.log("No such document!");
     }
   }).catch(function(error) {
     console.log("Error :", error.message);
@@ -76,33 +75,52 @@ export const getData = (uid) => {
 }
 
 //add notes
-const addPublication = (publishBy, publishText,visibility) => {
-  publish(publishBy, publishText,visibility)
+const addPublication = (publishBy, publishText, uid, visibility) => {
+  publish(publishBy, publishText, uid, visibility)
   .then(()=>{
-    console.log("Publicación exitosa");
+    // console.log("Publicación exitosa");
   })
    .catch((error)=>console.log("error: ", error.message));
 }
+//
+export const getPublicNote = () => {
+  getPublicPosts()
+  .then(function(querySnapshot) {
+    let data = [];
+    querySnapshot.forEach((doc) => {
+      const arrData = {
+        id: doc.id, 
+        data: doc.data() 
+      }
+      data.push(arrData);
+    })
+    
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
 
 //notes written by user and adding its name
-export const getUsername = (user, publishText,visibility) => {
+export const getUsername = (user, publishText, uid, state) => {
   let name;
   getName(user.uid)
   .then(function(doc) {
     if(doc.exists){
       name = doc.get("name");
-      console.log("publishBy: ", name);
+      // console.log("publishText", publishText)
+      // console.log("publishBy: ", name);
       if(typeof user.displayName == "object"){
-        addPublication(name, publishText,visibility);
+        addPublication(name, publishText, uid, state);
       }else{
-        addPublication(user.displayName, publishText,visibility);
+        addPublication(user.displayName, publishText, uid, state);
       }
     }else{
       console.log("No se pudo obtener el nombre");
     }
     return name
   }).catch(function(error) {
-    console.log("Error getting document:", error.message);
+    console.log(error.message);
   });
 }
 
