@@ -1,6 +1,6 @@
 import { newUser,logIn,log_Fb, log_Goog, log_Out} from './controller/controller-firebase.js'
 import { regCloudFirebase } from "./templates/template2.js";
-import { getFirestore, publish, getName, getPublicPosts } from "./controller/controller-firebase.js"
+import { getFirestore, publish, getName } from "./controller/controller-firebase.js";
 
 /*REGISTRO DE USUARIO--------------------------------*/
 export const registry = ()=>{
@@ -81,24 +81,6 @@ const addPublication = (publishBy, publishText, uid, visibility) => {
     // console.log("Publicación exitosa");
   })
    .catch((error)=>console.log("error: ", error.message));
-}
-//
-export const getPublicNote = () => {
-  getPublicPosts()
-  .then(function(querySnapshot) {
-    let data = [];
-    querySnapshot.forEach((doc) => {
-      const arrData = {
-        id: doc.id, 
-        data: doc.data() 
-      }
-      data.push(arrData);
-    })
-    
-  })
-  .catch((error) => {
-    console.log(error);
-  })
 }
 
 //notes written by user and adding its name

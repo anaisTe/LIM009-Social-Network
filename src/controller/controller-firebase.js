@@ -1,5 +1,5 @@
-import { getData } from "../view_controller.js"
-import{getUsername}from "../view_controller.js"
+import { getData } from "../view_controller.js";
+import { getUsername }from "../view_controller.js";
 
 // CREAR CUENTA--------------------------------------------------------------------------
 export const newUser = (email,password) =>{
@@ -62,9 +62,6 @@ export const publish = (publishBy, publishText, uid, state) => {
   return firestore
 }
 
-export const getPublicPosts = () => {
-  return firebase.firestore().collection("notes").where("state", "==", "public").get()
-};
 //TOMA EL VALOR DEL POST --------------------------------------------------------------------------
 export const set_Publication = (post, state) => {
   firebase.auth().onAuthStateChanged(function(user) {
