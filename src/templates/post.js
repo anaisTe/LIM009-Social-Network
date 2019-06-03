@@ -37,7 +37,6 @@ export const getNotes = () => {
       const btn_save = publish_note.querySelector(`#save-${doc.id}`);
       btn_save.addEventListener('click', () => save_Note(doc.id));
 
-      // console.log(doc.id, " => ", doc.data); 
       view_note.appendChild(publish_note);
     });
   } 
