@@ -5,7 +5,7 @@ import { getUsername }from "../view_controller.js";
 export const newUser = (email,password) =>{
      return firebase.auth().createUserWithEmailAndPassword(email, password)
  }
- //LOGIN --------------------------------------------------------------------------------
+//LOGIN --------------------------------------------------------------------------------
 export const logIn = (email,password) =>{
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
    return firebase.auth().signInWithEmailAndPassword(email, password)
