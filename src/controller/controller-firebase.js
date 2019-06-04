@@ -120,3 +120,7 @@ export const observer_user = () =>{
 export const log_Out = () =>{
   return firebase.auth().signOut()
 }
+
+export const getUserUid = ()=>{
+  return firebase.auth().currentUser;
+}

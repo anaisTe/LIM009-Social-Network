@@ -5,7 +5,7 @@ import { getFirestore, publish, getName } from "./controller/controller-firebase
 /*REGISTRO DE USUARIO--------------------------------*/
 export const registry = ()=>{
     let email =document.querySelector("#email").value;
-    let password = document.querySelector("#contraseña").value;
+    let password = document.querySelector("#contraseña").value; 
     
     newUser(email,password)
      .then(()=>{
@@ -78,7 +78,7 @@ export const getData = (uid) => {
 const addPublication = (publishBy, publishText, uid, visibility) => {
   publish(publishBy, publishText, uid, visibility)
   .then(()=>{
-    // console.log("Publicación exitosa");
+  // console.log("Publicación exitosa");
   })
    .catch((error)=>console.log("error: ", error.message));
 }
