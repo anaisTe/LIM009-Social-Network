@@ -1,8 +1,10 @@
 import { close_init } from "../view_controller.js";
-import { observer_user, set_Publication } from "../controller/controller-firebase.js";
+import { observer_user, set_Publication, getUserUid } from "../controller/controller-firebase.js";
 import { getNotes } from "../templates/post.js";
 
 export default () =>{ 
+    const user = getUserUid()  
+ 
     const div_3 = document.createElement('div');
 
     const homePage = `
@@ -86,6 +88,6 @@ export default () =>{
 
     observer_user();
 
-    getNotes();
+    getNotes(user);
     return div_3
 }
