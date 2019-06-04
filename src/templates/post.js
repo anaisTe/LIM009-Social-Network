@@ -22,7 +22,8 @@ export const getNotes = (user) => {
           </div>
           <div class="col-xs-12 col-lg-12 h5 edit">
               <img id="like-${doc.id}" src="image/heart.svg" alt="like">
-              <img id="edit-${doc.id}" src="image/paper-plane.svg" alt="editar">
+              ${( doc.data.uid === user.uid) ? `<img id="edit-${doc.id}" src="image/paper-plane.svg" alt="editar">`
+              :`<img id="edit-${doc.id}" class="hide-save" src="image/paper-plane.svg" alt="editar">`}
               <img class="hide-save" id="save-${doc.id}" src="image/save.svg" alt="guardar">
           </div>
         </div>` ;
@@ -46,5 +47,3 @@ export const getNotes = (user) => {
   } 
   window.onload = view_publish(get_notes); 
 }
-
-//              ${( doc.data.uid === user.uid) ? `<img id="delete-${doc.id}" src="image/cancel-mark.svg" class="pointer" alt="eliminar">`:`<img id="delete-${doc.id}" src="image/delete_wh.svg" class="pointer none" alt="eliminar">`}             

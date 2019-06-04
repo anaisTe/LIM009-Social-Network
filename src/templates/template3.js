@@ -10,7 +10,7 @@ export default () =>{
     const homePage = `
     <header>
         <input type="checkbox" id="btn-menu" />
-        <label for="btn-menu"><div class="img-menu"><img src="image/menu-three.png" /></div></label>
+        <label for="btn-menu"><div ><img src="image/menu-three.png" class="img-menu" /></div></label>
         <nav  class="menu">
             <ul>
                 <li>
