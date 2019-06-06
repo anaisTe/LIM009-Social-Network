@@ -50,8 +50,8 @@ export default () =>{
         <div class="col-xs-12 col-lg-12 box-text">
             <input id="post" type="text" class="col-xs-12 col-lg-12 text" placeholder="¿Que quieres compartir?">
             <div class="col-xs-12 col-lg-12 box-btn-img">
-                <!--img class="col-xs-6 col-lg-6" alt="img"-->
-                <button id="btn_note" class="col-xs-6 col-lg-6 btn fontsize" type="summit">publicar</button>
+                <!--img class="col-xs-3 col-lg-3" alt="img"-->
+                <button id="btn_note" class="col-xs-3 col-lg-3 btn fontsize" type="summit">publicar</button>
                 <select class="col-xs-3 col-lg-3"  id="select_post">
                     <option value="" disabled selected hidden>Privacidad</option>
                     <option value="private">Privado</option>
